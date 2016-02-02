@@ -1,0 +1,116 @@
+    .half {
+      float: left;
+      width: 47.5%;
+      margin-bottom: 0; }
+      .half.first {
+        margin-right: 5%; }
+
+  .two-third {
+    float: left;
+    width: 62%; }
+    .two-third.first {
+      margin-right: 8%; }
+
+  .third {
+    float: left;
+    width: 30%; }
+    .third.first {
+      margin-right: 8%; }
+
+      .three-list li {
+        float: left;
+        width: 30%;
+        margin: 0 5% 0 0; }
+        .three-list li:last-child, .three-list li:nth-child(3n) {
+          margin: 0; }
+    .three-list.wider li {
+      float: none;
+      width: 100%;
+      margin: 0 0 1em; }
+      .three-list.wider li:last-child, .three-list.wider li:nth-child(3n) {
+        margin: 0 0 1em; }
+    .three-list.wider li {
+      float: left;
+      width: 30%;
+      margin: 0 5% 0 0; }
+      .three-list.wider li:last-child, .three-list.wider li:nth-child(3n) {
+        margin: 0; }
+        .three-list li.last {
+          margin-right: 0;
+        }
+
+    .site-branding {
+      float: left;
+      width: 25%; }
+      .site-branding img {
+        margin: 0; }
+
+    .nav-toggle {
+      display: none; }
+
+    .main-navigation {
+      position: static;
+      float: left;
+      width: 75%; }
+      .main-navigation li {
+        display: inline-block;
+        border: 0; }
+      .main-navigation a {
+        text-align: left;
+        margin-right: 2.5em;
+        padding: 0; }
+      .main-navigation .btn {
+        display: inline-block;
+        background: #005990;
+        border-radius: 0.25em;
+        border-bottom: 2px solid #001a2a;
+        padding: 1em 1.5em; }
+        .main-navigation .btn.gray {
+          background: #a3a7a8;
+          border-bottom: 2px solid #6f7476; }
+
+    .hero {
+      height: 0;
+      padding-bottom: 46%; }
+
+    .hero-content {
+      position: absolute;
+      left: 0;
+      top: 20%;
+      width: 58%; }
+      .hero-content:before, .hero-content:after {
+        display: block;
+        top: -1em;
+        margin: 0; }
+      .hero-content p:before, .hero-content p:after {
+        display: block;
+        bottom: -1em;
+        margin: 0; }
+
+    .site-footer li {
+      float: left;
+      border: 0;
+      border-right: 1px solid #00395d; }
+      .site-footer li a {
+        padding: 3em 2em 2em;
+        text-align: left; }
+
+  .footer-nav {
+    float: left; }
+
+    .footer-btns {
+      float: right; }
+
+    .sub-navigation li {
+      margin-right: 2em; }
+
+    .testimony-excerpt {
+      float: left;
+      width: 48%;
+      margin-right: 4%; }
+      .testimony-excerpt.last {
+        margin-right: 0; }
+  .overlay-container {
+    margin-left: -325px;
+    margin-top: -183px;
+  }

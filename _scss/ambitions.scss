@@ -1,0 +1,102 @@
+.single-ambition {
+	position: relative;
+	margin: 0;
+	padding: 1.5em 2em;
+	border-bottom: 0.15em solid $gray;
+	h4 {
+		position: relative;
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-weight: normal;
+		font-size: 1.25em;
+		color: $blue;
+	}
+	@include bp(700) {
+		padding: 1.5em 2em 3.5em;
+	}
+	@include bp(800) {
+		float: left;
+		width: 50%;
+	}
+}
+.ambition-actions {
+
+	.btn {
+		border: 0;
+		padding: 0.5em 2em;
+		margin-bottom: 0.5em;
+	}
+	@include bp(700) {
+		position: absolute;
+		left: 2em;
+		right: 2em;
+		bottom: 1.5em;
+		.btn {
+			float: right;
+		}
+	}
+}
+.category-list {
+	a {
+		font-size: 0.75em;
+		text-decoration: none;
+		font-weight: normal;
+		color: $light-gray;
+		margin-right: 0.5em;
+		background: lighten($gray, 10%);
+		padding: 0.1em 0.5em;
+		text-transform: uppercase;
+		&:hover {
+			background: darken($gray, 5%);
+		}
+	}
+}
+.even {
+	.category-list {
+		a {
+			color: #fff;
+		}
+	}
+}
+.secure {
+	.paging-navigation {
+		background: $gray;
+		padding: 0 1em;
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
+	}
+}
+.ambition-cats {
+	text-align: center;
+	ul {
+		display: block;
+		list-style: none;
+		padding: 0;
+		margin: 0 auto 2em;
+		max-width: 25em;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		display: block;
+		font-size: 0.935em;
+		text-decoration: none;
+		font-weight: normal;
+		color: #fff;
+		margin: 0 0.25em 0.5em;
+		background: lighten($gray, 10%);
+		padding: 0.1em 0.5em;
+		text-transform: uppercase;
+		&:hover {
+			background: darken($gray, 5%);
+		}
+	}
+}
+.view-all {
+	font-size: 0.75em;
+	color: $gray;
+}

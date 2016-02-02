@@ -1,0 +1,45 @@
+.sub-page {
+	&:before {
+		content:'';
+		display: block;
+		position: absolute;
+		bottom: -1em;
+		left: 0;
+		width: 75%;
+		height: 1em;
+		background: #fff;
+		z-index: 2;
+	}
+	&:after {
+		content:'';
+		display: block;
+		position: absolute;
+		bottom: -1em;
+		left: 75%;
+		width: 0;
+		height: 0;
+		border-top: 1em solid #fff;
+		border-right: 1em solid transparent;
+		z-index: 2;
+	}
+}
+.entry-side {
+	p {
+		font-style: italic;
+		font-size: 0.935em;
+	}
+	@include bp(800) {
+		p {
+			font-size: 1.15em;
+		}
+	}
+}
+.entry-title {
+	text-transform: uppercase;
+}
+
+.section-image {
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+}

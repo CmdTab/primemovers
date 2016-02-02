@@ -1,0 +1,300 @@
+/*!
+	Theme Name: Primemovers
+	Theme URI: http://primemoversonline.com/
+	Author: Cmd Tab
+	Author URI: http://cmdtab.co/
+	Description: Description
+	Version: 2.0
+	License: GNU General Public License
+	License URI: license.txt
+	Text Domain: primemovers
+	Domain Path: /languages/
+*/
+@import "normalize";
+@import "bits";
+@import "var";
+/*Font*/
+@font-face {
+	font-family: 'pm';
+	src:url('_fonts/pm.eot');
+	src:url('_fonts/pm.eot?#iefix') format('embedded-opentype'),
+		url('_fonts/pm.woff') format('woff'),
+		url('_fonts/pm.ttf') format('truetype'),
+		url('_fonts/pm.svg#pm') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'pm';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html,body {
+	overflow-x:hidden;
+}
+body {
+	font:
+		1em/1.8
+		"Open Sans","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: $black;
+	//background: url(_i/texture.png);
+	//background-size: 397px;
+}
+a {
+	color: $blue;
+	font-weight: 700;
+	text-decoration: underline;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	transition: all 300ms ease;
+	&:hover {
+		color: #000;
+	}
+}
+.btn {
+	display: inline-block;
+	background: $blue;
+	color: #fff;
+	font-size: 0.8125em;
+	padding: 1em 1.5em;
+	text-align: center;
+	text-decoration: none;
+	font-family: "myriad-pro",sans-serif;
+	border-bottom: 0 solid darken($blue, 20%);
+	&:hover {
+		background: darken($blue, 10%);
+		color: #fff;
+	}
+	&.gray {
+		background: $gray;
+		color: #fff;
+		border-bottom: 2px solid darken($gray, 20%);
+		&:hover {
+			background: darken($gray, 10%);
+		}
+	}
+	&.white {
+		background: #fff;
+		color: $blue;
+		border-bottom: 2px solid darken(#fff, 20%);
+		&:hover {
+			background: darken(#fff, 10%);
+		}
+	}
+}
+.btn-set {
+	margin: 1em auto;
+	a {
+		display: inline-block;
+		background: $blue;
+		color: #fff;
+		font-size: 0.8125em;
+		padding: 1em 1.5em;
+		text-align: center;
+		text-decoration: none;
+		font-family: "myriad-pro",sans-serif;
+		border-right: 2px solid darken($blue, 20%);
+		&:hover {
+			background: darken($blue, 10%);
+			color: #fff;
+		}
+		&:first-of-type {
+			border-top-left-radius: 0.25em;
+			border-bottom-left-radius: 0.25em;
+		}
+		&:last-of-type {
+			border-top-right-radius: 0.25em;
+			border-bottom-right-radius: 0.25em;
+			border: 0;
+		}
+	}
+}
+strong {
+	font-weight: 700;
+}
+h1, h2, h3, h4 {
+	font-family: "myriad-pro",sans-serif;
+	line-height: 1;
+}
+h1 {
+	font-size: 2.1em;
+	margin-bottom: 0.25em;
+}
+h2 {
+	font-size: 1.85em;
+	font-weight: 300;
+}
+h3 {
+	font-size: 1.5em;
+}
+h4 {
+	font-size: 1.125em;
+}
+ul {
+	list-style: square;
+}
+hr {
+	width: 75%;
+	height: 0px;
+	border: 0;
+	margin: 0 auto 2em;
+	border-bottom: 1px solid $gray;
+	padding: 2em 0 0;
+}
+.site {
+	position: relative;
+	background: #fff;
+	width: 100%;
+	max-width: 67.5em;
+	margin: 0 auto;
+	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.secure .site {
+	max-width: 80em;
+}
+
+/*basic grid*/
+.half {
+	margin-bottom: 2em;
+	@include bp(700) {
+		float: left;
+		width: 47.5%;
+		margin-bottom: 0;
+		&.first {
+			margin-right: 5%;
+		}
+	}
+}
+.two-third {
+	@include bp(700) {
+		float: left;
+		width: 65%;
+		&.first {
+			margin-right: 5%;
+		}
+	}
+}
+.third {
+	@include bp(700) {
+		float: left;
+		width: 30%;
+		&.first {
+			margin-right: 5%;
+		}
+	}
+}
+.three-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		display: block;
+		margin-bottom: 1em;
+		@include bp(700) {
+			float: left;
+			width: 30%;
+			margin: 0 5% 0 0;
+			&:last-child, &:nth-child(3n) {
+				margin: 0;
+			}
+			&:nth-child(3n+4) {
+				clear: left;
+			}
+		}
+	}
+	&.wider {
+		li {
+			@include bp(700) {
+				float: none;
+				width: 100%;
+				margin: 0 0 1em;
+				&:last-child, &:nth-child(3n) {
+					margin: 0 0 1em;
+				}
+			}
+			@include bp(1000) {
+				float: left;
+				width: 30%;
+				margin: 0 5% 0 0;
+				&:last-child, &:nth-child(3n) {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+.fifty {
+	margin-bottom: 2em;
+	&.first {
+		border-bottom: 1px solid darken($light-gray, 5%);
+	}
+	@include bp(700) {
+		float: left;
+		width: 50%;
+		margin-bottom: 0;
+		&.first {
+			border: 0;
+			border-right: 1px solid darken($light-gray, 5%);
+		}
+	}
+}
+.smwrap {
+	width: 100%;
+	max-width: 40em;
+	margin: 0 auto;
+	padding: 0 1em;
+	@include bp(800) {
+		padding: 0;
+	}
+}
+.form-wrap {
+	width: 100%;
+	max-width: 33em;
+	margin: 0 auto;
+}
+/*Full Sections*/
+.full-section {
+	position: relative;
+	padding: 2em 1em;
+	@include bp(700) {
+		padding: 2em;
+	}
+	&.secure-page {
+		padding: 0;
+	}
+}
+.styled-logo {
+	text-transform: lowercase;
+	span {
+		font-style: italic;
+		font-weight: 700;
+	}
+}
+@import "header";
+@import "home";
+@import "footer";
+@import "page";
+@import "subnav";
+@import "testimony";
+@import "staff";
+@import "overlay";
+@import "content";
+@import "player";
+@import "forms";
+@import "secure";
+@import "dashboard";
+@import "ambitions";
+@import "news";

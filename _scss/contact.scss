@@ -1,0 +1,66 @@
+@import "bits";
+@import "var";
+#public {
+	background: none;
+}
+form.wufoo {
+	padding: 0;
+}
+.wufoo {
+	font:
+		1em/1.8
+		"Open Sans","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	.info {
+		display: none;
+		border-bottom: 0;
+		padding: 0 0 1em;
+	}
+}
+
+form.wufoo li span {
+	display: block;
+	margin-bottom: 2em;
+	@include bp(600) {
+		float: left;
+		width: 47.5%;
+		margin-bottom: 0;
+		margin-right: 0;
+		&:first-of-type {
+			margin-right: 5%;
+		}
+	}
+}
+form li.buttons {
+	padding: 1em 0;
+}
+.wufoo li.focused {
+	background: #efefef;
+}
+input[type="text"],
+input[type="email"],
+textarea,
+input.text,
+textarea.textarea {
+	display: block;
+	width: 100%;
+	border: 1px solid $gray;
+	padding: 0.5em;
+	background: #fff;
+}
+input[type="submit"] {
+	display: inline-block;
+	background: $blue;
+	border-radius: 0.25em;
+	border: 0;
+	color: #fff;
+	font-size: 0.8125em;
+	padding: 1em 1.5em;
+	text-align: center;
+	text-decoration: none;
+	font-family: "myriad-pro",sans-serif;
+	border-bottom: 2px solid darken($blue, 20%);
+	&:hover {
+		background: darken($blue, 10%);
+		color: #fff;
+	}
+}

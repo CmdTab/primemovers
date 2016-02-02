@@ -1,0 +1,38 @@
+.testimony-excerpt {
+	border: 1px solid $gray;
+	display:block;
+	margin-bottom: 1em;
+	a {
+		display: block;
+		background: #dedede;
+		text-decoration: none;
+		font-weight: normal;
+		color: $black;
+		&:hover {
+			background: #efefef;
+			img {
+				opacity: 1;
+			}
+		}
+	}
+	img {
+		opacity: 0.9;
+	}
+	@include bp(700) {
+		float: left;
+		width: 48%;
+		margin-right: 4%;
+		&:nth-child(even) {
+			margin-right: 0;
+		}
+	}
+}
+.testimony-content {
+	padding: 0 1em 1em;
+}
+.nav-previous {
+	float: left;
+}
+.nav-next {
+	float: right;
+}

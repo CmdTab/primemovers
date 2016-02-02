@@ -1,0 +1,127 @@
+.site-footer {
+	background: $blue;
+	z-index: 1;
+	padding: 0;
+	border-bottom: 1px solid darken($blue, 5%);
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		display: block;
+		border-bottom: 1px solid darken($blue, 10%);
+		a {
+			display: block;
+			padding: 2em 0;
+			text-align: center;
+			color: #fff;
+			text-decoration: none;
+			font-weight: normal;
+			&:hover {
+				background: darken($blue, 5%);
+			}
+		}
+	}
+	@include bp(700) {
+		li {
+			float: left;
+			border: 0;
+			border-right: 1px solid darken($blue, 10%);
+			a {
+				padding: 3em 2em 2em;
+				text-align: left;
+			}
+		}
+	}
+}
+.footer-nav {
+	@include bp(700) {
+		float: left;
+	}
+
+}
+.footer-btns {
+	text-align: left;
+	padding-right: 2em;
+	position: relative;
+	li {
+		border-right: 0;
+		border-left: 1px solid darken($blue, 10%);
+		a {
+		}
+	}
+	@include bp(700) {
+		float: right;
+	}
+}
+
+
+.secure-footer {
+	background: #333;
+	color: #fff;
+	padding: 1em 2em;
+	a {
+		color: #fff;
+	}
+}
+.footer-navigation {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		display: block;
+		padding: 0.5em 0.75em;
+		text-align: center;
+		font-family: "myriad-pro",sans-serif;
+		text-transform: uppercase;
+		color: #fff;
+		text-decoration: none;
+		font-size: 0.875em;
+		letter-spacing: 0.15em;
+		font-weight: normal;
+		border: 1px solid transparent;
+		&:hover {
+			border-color: #fff;
+		}
+	}
+	@include bp(800) {
+		float: left;
+	}
+}
+.copyright-bar {
+	color: #b2b2b2;
+	margin: 1em 0 0;
+	img {
+		display: inline-block;
+		margin: 0.5em 0;
+		opacity : 0.6;
+		width: 12em;
+	}
+	@include bp(800) {
+		float: right;
+		margin: 0;
+	}
+}
+.lote {
+	font-size: 0.6em;
+	text-align: center;
+	span {
+		display: block;
+	}
+	@include bp(800) {
+		text-align: right;
+	}
+}
+.copyright {
+	font-size: 0.6em;
+	text-align: center;
+	@include bp(800) {
+		text-align: right;
+	}
+}

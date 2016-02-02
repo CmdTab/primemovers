@@ -1,0 +1,59 @@
+.overlay {
+	display: block;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background: $blue;
+	background: transparentize($blue, .1);
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 100;
+	&.show-overlay {
+		opacity: 1;
+		visibility: visible;
+		.overlay-content {
+			-webkit-transform: scale(1);
+			opacity: 1;
+		}
+		* {
+			visibility: visible;
+		}
+	}
+}
+.overlay-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	max-width: 650px;
+	min-width: 366px;
+	height: auto;
+	z-index: 2000;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+
+	a {
+		display: block;
+		width: 100%;
+
+		padding: 1em 0 0;
+		text-align: center;
+		text-transform: uppercase;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+.overlay-content {
+	-webkit-transform: scale(0.7);
+	opacity: 0;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	background: darken($blue, 5%);
+	border: 1em solid darken($blue, 5%);
+}

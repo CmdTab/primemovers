@@ -1,0 +1,68 @@
+.dashboard-links {
+	margin: 0;
+	padding: 1em 1em 0;
+	text-align: center;
+	@include bp(800) {
+		float: left;
+		width: 50%;
+	}
+	ul {
+		list-style: none;
+		margin: 1em 0 0;
+		padding: 0;
+		text-align: center;
+	}
+	li {
+		display: block;
+		margin: 0.5em 1em;
+
+		@include bp(700) {
+			margin: 0 1em 0.5em;
+		}
+		@include bp(1000) {
+			margin: 0 1em 2em;
+		}
+	}
+	.btn {
+		width: 80%;
+		background: none;
+		border: 2px solid $blue;
+		color: $blue;
+		&:hover {
+			background: $blue;
+			color: #fff;
+		}
+	}
+	h2 {
+		position: relative;
+		padding: 0.5em 1em;
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-weight: normal;
+		font-size: 1.25em;
+		color: $blue;
+
+	}
+}
+.dash-header {
+	border-bottom: 0.15em solid $gray;
+}
+.news-item {
+	font-size: 0.75em;
+
+	padding: 0 0 2em;
+	border-bottom: 0.25em solid darken($blue, 5%);
+	margin: 1em 1em 2em;
+	h4 {
+		line-height: 1.25;
+		color: #fff;
+	}
+	.btn {
+		border-bottom: 0;
+		padding: 0.5em 1em
+	}
+	p {
+
+	}
+}

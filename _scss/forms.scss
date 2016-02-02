@@ -1,0 +1,228 @@
+.form-page {
+	border-bottom: 0.25em solid $blue;
+	background: $light-gray;
+}
+#rcp_registration_form,
+#rcp_profile_editor_form,
+#rcp_login_form,
+#rcp_lostpassword_form {
+	background: white;
+	border: 0.1875em solid $blue;
+
+	border-radius: 0.25em;
+	padding: 2em;
+	margin-bottom: 2em;
+	> div {
+		margin-bottom: 1em;
+	}
+	fieldset {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+}
+.rcp_form {
+	label {
+		display: block;
+	}
+	input[type="text"],
+	input[type="password"],
+	input[type="email"] {
+		display: block;
+		width: 100%;
+		padding: 0.5em;
+		border-radius: 0.25em;
+		border: 1px solid darken($light-gray, 5%);
+	}
+	input[type="submit"] {
+		border: 0;
+		display: block;
+		width: 100%;
+		border: 0;
+		background: $blue;
+		border-radius: 0.25em;
+		color: #fff;
+		font-size: 0.8125em;
+		padding: 1em 1.5em;
+		text-align: center;
+		text-decoration: none;
+		font-family: "myriad-pro",sans-serif;
+		-webkit-appearance: none;
+		&:disabled {
+			background: $gray;
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+	}
+	textarea {
+		display: block;
+		width: 100%;
+		padding: 0.5em;
+		border-radius: 0.25em;
+		border: 1px solid darken($light-gray, 5%);
+	}
+}
+.password-field {
+	position: relative;
+}
+.password-toggle {
+	position: absolute;
+	top: 0.75em;
+	right: 0.5em;
+	text-decoration: none;
+	color: $gray;
+	font-size: 0.75em;
+	text-transform: uppercase;
+}
+.remember {
+	input[type="checkbox"] {
+		float: left;
+		margin: 0.5em 0.5em 0 0;
+		padding: 0.5em;
+	}
+}
+.rcp_lost_password {
+	border-top: 0.25em solid darken($light-gray, 5%);
+	padding-top: 1em;
+	margin: 1.5em 0 0;
+	text-align: center;
+	a {
+		text-decoration: none;
+		font-size: 0.935em;
+		text-decoration: none;
+	}
+}
+.rcp_logged_in {
+	text-align: center;
+}
+#rcp_subscription_levels {
+	list-style: none;
+}
+.rcp_subscription_level_name {
+	font-weight: bold;
+}
+.rcp_success {
+	color: $black;
+	font-style: italic;
+	background: #4CE453;
+	padding: 0.5em;
+	border-radius: 5px;
+	text-align: center;
+}
+.rcp_error {
+	color: white;
+	font-style: italic;
+	background: #da3a3a;
+	padding: 0.5em;
+	border-radius: 5px;
+	text-align: center;
+}
+.form-branding {
+
+	a {
+		display: block;
+		padding: 0.35em 0;
+	}
+	img {
+		display: block;
+		max-width: 12em;
+		margin: 0 auto;
+	}
+	@include bp(1000) {
+		img {
+			max-width: 15em;
+		}
+	}
+}
+.back-form-btn {
+	display: block;
+	margin: 0 auto;
+	text-decoration: none;
+	text-align: center;
+}
+.contact-number {
+	#rcp_contact {
+		width: 70%;
+		margin-right: 5%;
+		float: left;
+	}
+	select {
+		width: 25%;
+		margin-top: 0.6em;
+		float: right;
+	}
+	@include bp(800) {
+		#rcp_contact {
+			width: 80%;
+			margin-right: 5%;
+			float: left;
+		}
+		select {
+			width: 15%;
+			margin-top: 0.6em;
+			float: right;
+		}
+	}
+}
+
+#rcp_ambition,
+#rcp_privacy,
+#rcp_mailchimp_signup {
+  margin-right: 0.5em;
+}
+#rcp_mailchimp_signup {
+	+ label {
+		display: inline;
+	}
+}
+.user-remember {
+	label {
+		float: right;
+		width: 92.5%;
+	}
+	input {
+		float: left;
+		width: 7.5%;
+		margin-top: 0.4em;
+	}
+	@include bp(800) {
+		label {
+			width: 95%;
+		}
+		input {
+			width: 5%;
+		}
+	}
+}
+.rcp_subscription_fieldset {
+	display: none;
+}
+.form-title {
+	margin: 0 0 0.25em;
+	padding: 0 0 0.25em;
+	border-bottom: 1px solid $light-gray;
+}
+.subheading {
+	font-size: 0.75em;
+	margin: 0 0 1em;
+	font-style: italic;
+	color: $gray;
+}
+.form-section {
+	margin: 2em 0 0;
+}
+.option-list {
+	h4 {
+		font-weight: normal;
+		margin-bottom: 0.5em;
+	}
+	ol {
+		margin: 0 0 1em;
+		li {
+			margin-bottom: 0.5em;
+			font-weight: bold;
+			color: $gray;
+		}
+	}
+}
