@@ -297,6 +297,72 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/_i\/sort-asc-white.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 168,
+		"inputAbbreviatedPath": "\/_i\/sort-asc-white.png",
+		"outputAbbreviatedPath": "\/_i\/sort-asc-white.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_i\/sort-asc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 186,
+		"inputAbbreviatedPath": "\/_i\/sort-asc.png",
+		"outputAbbreviatedPath": "\/_i\/sort-asc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_i\/sort-desc-white.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 179,
+		"inputAbbreviatedPath": "\/_i\/sort-desc-white.png",
+		"outputAbbreviatedPath": "\/_i\/sort-desc-white.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_i\/sort-desc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 188,
+		"inputAbbreviatedPath": "\/_i\/sort-desc.png",
+		"outputAbbreviatedPath": "\/_i\/sort-desc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_i\/sort-white.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 189,
+		"inputAbbreviatedPath": "\/_i\/sort-white.png",
+		"outputAbbreviatedPath": "\/_i\/sort-white.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_i\/sort.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 244,
+		"inputAbbreviatedPath": "\/_i\/sort.png",
+		"outputAbbreviatedPath": "\/_i\/sort.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/_i\/testimonies-graph.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -341,12 +407,23 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/_js\/functions-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_js\/functions-min.js",
+		"outputAbbreviatedPath": "\/_js\/min\/functions-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/_js\/functions.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_js\/functions.js",
-		"outputAbbreviatedPath": "\/_js\/functions-ck.js",
+		"outputAbbreviatedPath": "\/_js\/functions-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,
@@ -385,12 +462,56 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/_js\/jquery-latest.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_js\/jquery-latest.js",
+		"outputAbbreviatedPath": "\/_js\/min\/jquery-latest-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/_js\/jquery.fitvids.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_js\/jquery.fitvids.js",
 		"outputAbbreviatedPath": "\/_js\/min\/jquery.fitvids-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/_js\/jquery.matchHeight.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_js\/jquery.matchHeight.js",
+		"outputAbbreviatedPath": "\/_js\/min\/jquery.matchHeight-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/_js\/jquery.tablesorter.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_js\/jquery.tablesorter.js",
+		"outputAbbreviatedPath": "\/_js\/min\/jquery.tablesorter-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/_js\/jquery.waypoints.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_js\/jquery.waypoints.js",
+		"outputAbbreviatedPath": "\/_js\/min\/jquery.waypoints-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -421,13 +542,29 @@
 	"\/_js\/plugins.js": {
 		"fileType": 64,
 		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/_js\/plugins.js",
 		"outputAbbreviatedPath": "\/_js\/plugins-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
+		},
+	"\/_scss\/alumni.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_scss\/alumni.scss",
+		"outputAbbreviatedPath": "\/css\/alumni.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
 		},
 	"\/_scss\/ambitions.scss": {
 		"createSourceMap": 0,
@@ -1503,19 +1640,43 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Josh Rives",
+"lastSavedByUser": "Tristan Swire",
 "manualImportLinks": {
-	"\/_js\/plugins.js": [
+	"\/_js\/functions.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/jquery.fitvids.js",
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.tablesorter.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/mediaelement-and-player.js",
+			"linkedFileAbbreviatedPath": "\/_js\/jquery-latest.js",
 			"position": 1,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.matchHeight.js",
+			"position": 2,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.waypoints.js",
+			"position": 3,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.fitvids.js",
+			"position": 4,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/_js\/mediaelement-and-player.js",
+			"position": 5,
 			"type": 0
 			}
 		]

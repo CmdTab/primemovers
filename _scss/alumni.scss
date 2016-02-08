@@ -1,0 +1,174 @@
+.search-form {
+	position: relative;
+	padding: 1em;
+	.search-field {
+		position: absolute;
+		right: 2.5%;
+		bottom: 0;
+	}
+	input {
+		padding: 0.5em;
+		width: 26em;
+		font-size: 0.8em;
+		display: block;
+		background-color: transparent;
+		position: relative;
+		z-index: 2;
+		border: 1px solid $gray;
+	}
+	label {
+		font-size: 0.85em;
+		padding-right: 0.5em;
+		position: absolute;
+		z-index: 1;
+		top: 0.25em;
+		left: 0.55em;
+		color: $gray;
+		
+	}
+}
+.alumni-list {
+	border: 1px solid $gray;
+	width: 95%;
+	margin: 2em auto;
+	tbody,
+	thead {
+		width: 100%;
+	}
+	th,
+	td {
+		border-right: 1px solid $gray;
+		padding: 0.5em;
+		&:last-child {
+			border-right: none;
+		}
+	}
+	.first-name {
+		width: 20%;
+	}
+	.last-name {
+		width: 20%;
+	}
+	.city {
+		width: 20%;
+		@include bp(800) {
+			width: 15%;
+		}
+	}
+	.state {
+		width: 20%;
+		@include bp(800) {
+			width: 15%;
+		}
+	}
+	.holy-ambition {
+		width: 20%;
+		@include bp(800) {
+			width: 30%;
+		}
+	}
+	.holy-see-more {
+		display: block;
+		@include bp(700) {
+			display: none;
+		}
+	}
+}
+.titles,
+.users {
+	border-bottom: 1px solid $gray;
+	position: relative;
+}
+.titles {
+	th {
+		font-size: 0.75em;
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		@include bp(1000) {
+			font-size: 1em;
+		}
+	}
+	.header {
+		background: url(_i/sort-white.svg) no-repeat;	
+	}
+	.headerSortUp {
+		background: url(_i/sort-desc-white.svg) no-repeat;
+	}
+	.headerSortDown {
+		background: url(_i/sort-asc-white.svg) no-repeat;
+	}
+	.header,
+	.headerSortUp,
+	.headerSortDown {
+		background-size: 1em 1em;
+		background-position: right;
+		background-color: $blue;
+		color: white;
+		padding: 0.5em 0;
+	}
+}
+.users {
+	border-top: none;
+	td {
+		font-size: 0.7em;
+		@include bp(800) {
+			font-size: 0.85em;
+		}
+	}
+	.holy-ambition {
+		&:after {
+			content: 'more';
+			height: 1em;
+			width: 1em;
+			position: absolute;
+			right: 1.75em;
+			bottom: 0.75em;
+			display: block;
+			cursor: pointer;
+		}
+		@include bp(700) {
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+.holy-ambition-full {
+	width: 100%;
+	display: none;
+	td {
+		width: 100%;
+	}
+}
+.sticky-nav {
+	display: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 95%;
+	list-style: none;
+	border: 1px solid $gray;
+	li {
+		float: left;
+		width: 20%;
+		padding: 0.5em 0;
+		background: $blue;
+		color: white;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 2px;
+		border-right: 1px solid $gray;
+		&:nth-child(3n),
+		&:nth-child(4n){
+			width: 15%;
+		}
+		&:nth-child(5n) {
+			width: 30%;
+			border-right: none;
+		}
+	}
+	&.is-sticky {
+		display: block;
+	}
+}

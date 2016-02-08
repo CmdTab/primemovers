@@ -123,23 +123,79 @@ function contentBlockHeight() {
 		}
 	});
 }
+function sortTable() {
+	// call the tablesorter plugin, the magic happens in the markup 
+   jQuery("#alumniTable").tablesorter( {sortList: [[1,0]]} ); 
+
+	//assign the sortStart event 
+	jQuery("#alumniTable").bind("sortStart",function() { 
+		jQuery("#overlay").show(); 
+	}).bind("sortEnd",function() { 
+		jQuery("#overlay").hide(); 
+	}); 
+}
+
+function showMore() {
+	jQuery('.more-ha').click(function() {
+		if(jQuery('.holy-ambition-full').hasClass('expanded')) {
+			jQuery('.holy-ambition-full').removeClass('expanded');
+			jQuery('.holy-ambition-full').slideUp('slow');
+		} else {
+			jQuery('.holy-ambition-full').addClass('expanded');
+			jQuery('.holy-ambition-full').slideDown('slow');
+		}
+		return false;
+	});
+}
+
+function searchTable() {
+	var jQueryrows = jQuery('#alumniTable tbody tr');
+	jQuery('#search').keyup(function() {
+	    var val = jQuery.trim(jQuery(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+	    jQueryrows.show().filter(function() {
+	        var text = jQuery(this).text().replace(/\s+/g, ' ').toLowerCase();
+	        return !~text.indexOf(val);
+	    }).hide();
+	});
+}
+
+function labelOverlays() {
+	jQuery('.search-field input').keydown(function() {
+		jQuery(this).siblings('label').css('display', 'none');
+	});
+	jQuery('.search-field input').blur(function() {
+		if(!jQuery(this).val()) {
+			jQuery(this).siblings('label').css('display', 'inline');
+		}
+	});
+	jQuery('.search-field input').each(function() {
+		if(jQuery(this).val() !='') {
+			jQuery(this).siblings('label').css('display', 'none');
+		}
+	});
+}
 
 jQuery(document).ready(function() {
 	var vw = $(window).width();
+	if (vw > 800) {
+		contentBlockHeight();
+	}
+	labelOverlays();
+	searchTable();
+	showMore();
 	navToggle();
-	jQuery(".video, .video-box").fitVids();
+	sortTable();
+	/* jQuery(".video, .video-box").fitVids(); */
 	videoOverlay();
 	playMedia();
-	jQuery('video, audio').mediaelementplayer({
+	/* jQuery('video, audio').mediaelementplayer({
 
-	});
+	}); */
 	btnCount();
 	subnavToggle();
 	passwordToggle();
 	verifyPrivacy();
-	if (vw > 800) {
-		contentBlockHeight();
-	}
 });
 jQuery(window).load(function() {
 	var vw = $(window).width();
