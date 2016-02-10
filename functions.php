@@ -218,7 +218,7 @@ function excerpt($limit) {
 
 /*****Custom fields to register*****/
 /**
- * Adds the custom fields to the registration form 
+ * Adds the custom fields to the registration form
  *
  */
 
@@ -333,11 +333,11 @@ function pw_rcp_add_user_fields_profile() {
 		<p class="subheading">This information will be filled out as you progress through the Primemovers process.</p>
 		<p class="custom-fields edit-ambition">
 			<label for="rcp_ha"><?php _e( 'My Holy Ambition (What I am going to do)', 'rcp' ); ?></label>
-			<input name="rcp_ha" id="rcp_ha" type="text" value="<?php echo esc_attr( $ha ); ?>"/>
+			<textarea name="rcp_ha" id="rcp_ha" type="text" ><?php echo esc_attr( $ha ); ?></textarea>
 		</p>
 		<p class="custom-fields edit-mission">
 			<label for="rcp_mission"><?php _e( 'My Mission Statement (Why I exist)', 'rcp' ); ?></label>
-			<input name="rcp_mission" id="rcp_mission" type="text" value="<?php echo esc_attr( $mission ); ?>"/>
+			<textarea name="rcp_mission" id="rcp_mission" type="text"><?php echo esc_attr( $mission ); ?></textarea>
 		</p>
 		<div class="option-list">
 			<h4>My Top Five Strengths</h4>
@@ -903,7 +903,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 			<p class="description"><?php _e( 'The member\'s privacy', 'rcp' ); ?></p>
 		</td>
 	</tr>
-	
+
 	<?php
 }
 add_action( 'rcp_edit_member_after', 'pw_rcp_add_member_edit_fields' );
@@ -980,9 +980,9 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 	if( ! empty( $_POST['rcp_contact'] ) ) {
 		update_user_meta( $user_id, 'rcp_contact', sanitize_text_field( $_POST['rcp_contact'] ) );
 	}
-	
+
 	update_user_meta( $user_id, 'rcp_type', $_POST['rcp_type'] );
-	
+
 	if( isset( $_POST['rcp_ambition'] ) ) {
 		update_user_meta( $user_id, 'rcp_ambition', 1 );
 	} else {
