@@ -290,7 +290,6 @@ function pw_rcp_add_user_fields_profile() {
 	$work      = get_user_meta( get_current_user_id(), 'rcp_work', true );
 	$ambition  = get_user_meta( get_current_user_id(), 'rcp_ambition', true );
 	$privacy   = get_user_meta( get_current_user_id(), 'rcp_privacy', true );
-
 	$ha        = get_user_meta( get_current_user_id(), 'rcp_ha', true );
 	$mission   = get_user_meta( get_current_user_id(), 'rcp_mission', true );
 	$strength1 = get_user_meta( get_current_user_id(), 'rcp_strength1', true );
@@ -566,7 +565,7 @@ function pw_rcp_add_user_fields_profile() {
 		<h2 class="form-title"><?php _e( 'Privacy Options', 'rcp' ); ?></h2>
 		<p class="custom-fields">
 			<label for="rcp_ambition"><?php _e( 'Alumni Directory', 'rcp' ); ?> <small>(Optional)</small></label>
-			<input name="rcp_ambition" id="rcp_ambition" type="checkbox" value="<?php echo esc_attr( $ambition ); ?>"/><span>I agree for my name, email, city, state and Holy Ambition overview to be viewable on the Primemovers Alumni Directory hosted on this secure Primemovers website.</span>
+			<input name="rcp_ambition" id="rcp_ambition" type="checkbox" <?php if( esc_attr( $ambition )) {echo 'checked';} ?> /><span>I agree for my name, email, city, state and Holy Ambition overview to be viewable on the Primemovers Alumni Directory hosted on this secure Primemovers website.</span>
 		</p>
 		<p class="custom-fields">
 			<label for="rcp_privacy"><?php _e( 'Privacy', 'rcp' ); ?> <small>(Required)</small></label>

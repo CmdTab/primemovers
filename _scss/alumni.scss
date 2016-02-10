@@ -42,7 +42,7 @@
 section {
 	position: relative;
 	width: 95%;
-	margin: 2em auto;
+	margin: 1em auto 2em;
 	@include bp(700) {
 		padding-top: 2em;
 		background: $blue;
@@ -241,7 +241,7 @@ section {
 			}
 		}
 		td {
-			padding: 0.75em 0 0 37%;
+			padding: 0.75em 0 0 38%;
 			font-size: 0.7em;
 			width: 100%;
 			display: block;
@@ -270,9 +270,10 @@ section {
 			top: 50%;
 			left: 50%;
 			z-index: 101;
-			font-size: 1em;
+			font-size: 0.8em;
 			@include bp(800) {
 				width: 55%;
+				font-size: 1em;
 			}
 			@include bp(1280) {
 				width: 45%;
