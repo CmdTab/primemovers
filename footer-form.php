@@ -16,6 +16,7 @@
 
 <?php wp_footer(); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/_js/plugins-ck.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/_js/functions-min.js"></script>
 <!--[if lt IE 9]>
 	<script src="<?php bloginfo('template_directory'); ?>/_js/ie.js"></script>

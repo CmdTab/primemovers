@@ -42,6 +42,28 @@ img {
   display: block;
   margin: 0 auto; }
 
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+/* =======================================================================================
+Example showing how to change the color/size of the icons:
+.icon-name {
+  font-size: 32px; // works because "width" & "height" were set using em units
+  color: red; // works for single-colored icons, because "fill" was set to "currentColor"
+}
+======================================================================================== */
+.icon-sort {
+  width: 0.5712890625em; }
+
+.icon-sort-desc {
+  width: 0.5712890625em; }
+
+.icon-sort-asc {
+  width: 0.5712890625em; }
+
 #public {
   background: none; }
 

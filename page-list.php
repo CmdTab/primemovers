@@ -31,99 +31,105 @@
 						   	<input type="text" id="search" placeholder="" />
 						   </span>
 						</form>
-						<ul class="sticky-nav group">
-							<li>First Name</li>
-							<li>Last Name</li>
-							<li>City</li>
-							<li>State</li>
-							<li>Holy Ambition</li>
-						</ul>
-						<table id="alumniTable" class="tablesorter alumni-list">
-							<thead>
-								<tr class="titles">
-									<th class="first-name">First Name</td>
-									<th class="last-name">Last Name</td>
-									<th class="city">City</td>
-									<th class="state">State</td>
-									<th class="holy-ambition">Holy Ambition</td>
-								</tr>
-							</thead>
-							<tbody>
-								<?php 
-									$members = get_users('role=subscriber'); 
-									foreach ( $members as $member ) :
-										/*echo '<pre>';
-										var_dump($member);
-										echo '</pre>';*/
-										/*echo $member->display_name . ' - ';*/
-										$sub = new RCP_Member( $member->ID );
-										$status = $sub->get_status();
-										// if( $status == 'active' ) :
-											// if(get_user_meta($member->ID, 'rcp_ambition', true) == 1):
-								?>
-									<tr class="users">
-										<td class="first-name"><?php echo get_user_meta($member->ID, 'first_name', true); ?></td>
-										<td class="last-name"><?php echo get_user_meta($member->ID, 'last_name', true); ?></td>
-										<td class="city"><?php echo get_user_meta($member->ID, 'rcp_city', true); ?></td>
-										<td class="state"><?php echo get_user_meta($member->ID, 'rcp_state', true); ?></td>
-
-										<?php
-											$str = get_user_meta($member->ID, 'rcp_ha', true);
-											$out = strlen($str) > 130 ? substr($str,0,130)." ... " : $str;
-											$table = '<tr class="users">';
-											$tableOpen = '<td class="holy-ambition-full">';
-											$tableClose = '</td>';
-
-											if(strlen($str) > 130){ 
-
-								         	echo '<td class="holy-ambition">';
-												echo $out;
-												echo '<a href="#" class="more-ha">More</a>';
-												echo '</td>';
-												echo '</tr>';
-
-												echo $table;
-												echo $tableOpen;
-												echo $out;
-												echo $tableClose;
-
-								    		} else { 
-
-								    			echo '<td class="holy-ambition">';
-												echo $str;
-												echo '</td>';
-
-								    		}
-
+						<section>
+							<div class="table-container">
+								<table id="alumniTable" class="tablesorter alumni-list">
+									<thead>
+										<tr class="titles">
+											<th class="first-name">
+												<div>
+													First Name
+													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
+													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
+													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
+												</div>
+											</td>
+											<th class="last-name">
+												<div>
+													Last Name
+													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
+													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
+													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
+												</div>
+											</td>
+											<th class="city">
+												<div>
+													City
+													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
+													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
+													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
+												</div>
+											</td>
+											<th class="state">
+												<div>
+													State
+													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
+													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
+													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
+												</div>
+											</td>
+											<th class="holy-ambition">
+												<div>
+													Holy Ambition
+													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
+													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
+													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
+												</div>
+											</td>
+										</tr>
+									</thead>
+									<tbody>
+										<?php 
+											$members = get_users('role=subscriber'); 
+											foreach ( $members as $member ) :
+												$sub = new RCP_Member( $member->ID );
+												$status = $sub->get_status();
+												if( $status == 'active' ) :
+												if(get_user_meta($member->ID, 'rcp_ambition', true) == 1):
 										?>
+											<tr class="users">
+												<td class="first-name"><?php echo get_user_meta($member->ID, 'first_name', true); ?></td>
+												<td class="last-name"><?php echo get_user_meta($member->ID, 'last_name', true); ?></td>
+												<td class="city"><?php echo get_user_meta($member->ID, 'rcp_city', true); ?></td>
+												<td class="state"><?php echo get_user_meta($member->ID, 'rcp_state', true); ?></td>
 
-										<!-- if
+												<?php
+													$see_more = '<a href="#" class="more-ha"> <span>...</span> See More</a>';
+													$str = get_user_meta($member->ID, 'rcp_ha', true);
+													$out = strlen($str) > 30 ? substr($str,0,30). $see_more : $new_str;
+													$table = '<tr class="users">';
+													$tableOpen = '<td class="holy-ambition-full">';
+													$tableClose = '</td>';
 
-										<td class="holy-ambition">
-											<?php // echo get_user_meta($member->ID, 'rcp_ha', true); ?>
-										</td>
+													if(strlen($str) > 30){ 
 
-										else
+										         	echo '<td class="holy-ambition">';
+														echo $out;
+														echo '</td>';
+														echo $tableOpen;
+														echo $str;
+														echo '<a href="#" class="more-ha close">Close</a>';
+														echo $tableClose;
+														echo '</tr>';
 
-										<td class="holy-ambition">
-											<?php // echo get_user_meta($member->ID, 'rcp_ha', true); ?>
-											<a href="#">More</a>
-										</td>
-									</tr>
+										    		} else { 
 
-									<tr class="holy-ambition-full">
-										<td>
-											<?php // echo get_user_meta($member->ID, 'rcp_ha', true); ?>
-										</td>
+										    			echo '<td class="holy-ambition">';
+														echo $str;
+														echo '</td>';
 
-										endif -->
+										    		}
 
-									</tr>
-								<?php // endif; endif;
-									endforeach;
-								?>
-							</tbody>
-						</table>
+												?>
+
+											</tr>
+										<?php endif; endif;
+											endforeach;
+										?>
+									</tbody>
+								</table>
+							</div>
+						</section>
 						<?php get_template_part( 'content', 'block' ); ?>
 					</article>
 				</div>

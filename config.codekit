@@ -462,17 +462,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/_js\/jquery-latest.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/_js\/jquery-latest.js",
-		"outputAbbreviatedPath": "\/_js\/min\/jquery-latest-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/_js\/jquery.fitvids.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -1642,16 +1631,16 @@
 	],
 "lastSavedByUser": "Tristan Swire",
 "manualImportLinks": {
-	"\/_js\/functions.js": [
+	"\/_js\/plugins.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/jquery.tablesorter.js",
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.fitvids.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/jquery-latest.js",
+			"linkedFileAbbreviatedPath": "\/_js\/mediaelement-and-player.js",
 			"position": 1,
 			"type": 0
 			},
@@ -1663,20 +1652,14 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/jquery.waypoints.js",
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.tablesorter.js",
 			"position": 3,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/jquery.fitvids.js",
+			"linkedFileAbbreviatedPath": "\/_js\/jquery.waypoints.js",
 			"position": 4,
-			"type": 0
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/_js\/mediaelement-and-player.js",
-			"position": 5,
 			"type": 0
 			}
 		]

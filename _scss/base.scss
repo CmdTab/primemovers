@@ -25,6 +25,7 @@
 	font-style: normal;
 }
 
+
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
 	font-family: 'pm';
@@ -264,6 +265,12 @@ hr {
 	width: 100%;
 	max-width: 33em;
 	margin: 0 auto;
+}
+.strength-dropdown {
+	select {
+		display: block;
+		margin-bottom: 0.5em;
+	}
 }
 /*Full Sections*/
 .full-section {

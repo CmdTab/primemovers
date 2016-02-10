@@ -122,17 +122,26 @@ function contentBlockHeight() {
 			jQuery(this).next('.even').css('height',oddHeight);
 		}
 	});
-}
+}	
 function sortTable() {
 	// call the tablesorter plugin, the magic happens in the markup 
-   jQuery("#alumniTable").tablesorter( {sortList: [[1,0]]} ); 
+   jQuery("#alumniTable").tablesorter({ 
+     	sortList: [[1,0]],
+     	headers: { 4: { sorter: false  },
+    	}
+    });  
+}
 
-	//assign the sortStart event 
-	jQuery("#alumniTable").bind("sortStart",function() { 
-		jQuery("#overlay").show(); 
-	}).bind("sortEnd",function() { 
-		jQuery("#overlay").hide(); 
-	}); 
+function searchTable() {
+	var jQueryrows = jQuery('#alumniTable tbody tr');
+	jQuery('#search').keyup(function() {
+	    var val = jQuery.trim(jQuery(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+	    jQueryrows.show().filter(function() {
+	        var text = jQuery(this).text().replace(/\s+/g, ' ').toLowerCase();
+	        return !~text.indexOf(val);
+	    }).hide();
+	});
 }
 
 function showMore() {
@@ -145,18 +154,6 @@ function showMore() {
 			jQuery('.holy-ambition-full').slideDown('slow');
 		}
 		return false;
-	});
-}
-
-function searchTable() {
-	var jQueryrows = jQuery('#alumniTable tbody tr');
-	jQuery('#search').keyup(function() {
-	    var val = jQuery.trim(jQuery(this).val()).replace(/ +/g, ' ').toLowerCase();
-
-	    jQueryrows.show().filter(function() {
-	        var text = jQuery(this).text().replace(/\s+/g, ' ').toLowerCase();
-	        return !~text.indexOf(val);
-	    }).hide();
 	});
 }
 
@@ -176,22 +173,23 @@ function labelOverlays() {
 	});
 }
 
+
 jQuery(document).ready(function() {
 	var vw = $(window).width();
 	if (vw > 800) {
 		contentBlockHeight();
 	}
-	labelOverlays();
+	sortTable();
 	searchTable();
 	showMore();
+	labelOverlays();
 	navToggle();
-	sortTable();
-	/* jQuery(".video, .video-box").fitVids(); */
+		jQuery(".video, .video-box").fitVids();
 	videoOverlay();
 	playMedia();
-	/* jQuery('video, audio').mediaelementplayer({
+		jQuery('video, audio').mediaelementplayer({
 
-	}); */
+		});
 	btnCount();
 	subnavToggle();
 	passwordToggle();
