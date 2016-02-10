@@ -1079,3 +1079,15 @@ function wpse_retrieve_password_message( $message, $key ){
     // Return completed message for retrieve password
     return $message;
 }
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Login Form Settings',
+		'menu_title'	=> 'Login Settings',
+		'menu_slug' 	=> 'login-form-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}

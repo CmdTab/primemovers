@@ -4,12 +4,12 @@
 	<?php rcp_show_error_messages( 'login' ); ?>
 
 	<form id="rcp_login_form"  class="rcp_form" method="POST" action="<?php echo esc_url( rcp_get_current_url() ); ?>">
-		<fieldset class="rcp_login_data">
-			<p>
+		<fieldset class="rcp_login_data group">
+			<p class="user-field">
 				<label for="rcp_user_Login"><?php _e( 'Username', 'rcp' ); ?></label>
 				<input name="rcp_user_login" id="rcp_user_login" class="required" type="text"/>
 			</p>
-			<p>
+			<p class="pass-field">
 				<label for="rcp_user_pass"><?php _e( 'Password', 'rcp' ); ?></label>
 				<div class="password-field">
 					<input name="rcp_user_pass" id="rcp_user_pass" class="required" type="password"/>

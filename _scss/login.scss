@@ -1,0 +1,147 @@
+.header-login {
+	width: 100%;
+	font-size: 0.75em;
+	padding: 2em 0 0;
+	@include bp(700) {
+		width: 50%;
+		margin: 0 auto;
+	}
+	@include bp(1000) {
+		float: left;
+		font-size: 0.875em;
+		width: 60%;
+		margin-left: 20%;
+		padding: 0;
+	}
+	#rcp_login_form,
+	#rcp_lostpassword_form {
+		padding: 0;
+		border: none;
+		position: relative;
+	}
+	#rcp_login_form {
+		p {
+			margin: 0;
+		}
+		.rcp_login_data {
+			position: relative;
+		}
+		.user-field {
+			display: block;
+			@include bp(1000) {
+				float: left;
+				width: 42%;
+				margin-right: 2%;
+			}
+		}
+		.password-field {
+			display: block;
+			@include bp(1000) {
+				float: left;
+				width: 42%;
+				margin-right: 5%;
+			}
+		}
+		.user-remember {
+			display: inline-block;
+			text-align: right;
+			input {
+				display: inline;
+				float: none;
+				width: auto;
+				margin: 0 auto;
+			}
+			label {
+				font-size: 0.8em;
+				display: inline;
+				width: auto;
+				float: none;
+				margin-right: 0.5em;
+			}
+		}
+		.rcp_lost_password {
+			display: inline-block;
+			float: right;
+			padding: 0;
+			margin: 0;
+			text-align: right;
+			border: none;
+			@include bp(700) {
+				padding: 0 14% 0 0;
+			}
+		}
+		#rcp_login_submit {
+			width: 50%;
+			margin: 2em auto 0;
+			font-size: 1.1em;
+			@include bp(1000) {
+				position: absolute;
+				top: 1.8em;
+				right: 0;
+				margin: 0 auto;
+				width: 5em;
+				padding: 0.6em 0;
+				font-size: 1em;
+				text-align: center;
+			}
+		}
+	}
+	#rcp_lostpassword_form {
+		padding-top: 1em;
+		input[type="text"] {
+			width: 100%;
+			@include bp(1000) {
+				width: 70%;
+				margin-bottom: 1em;
+			}
+		}
+		input[type="submit"] {
+			width: 100%;
+			margin: 2em auto 0;
+			font-size: 1.1em;
+			@include bp(700) {
+				width: 75%;
+			}
+			@include bp(1000) {
+				position: absolute;
+				top: 3.8em;
+				right: 0;
+				margin: 0 auto;
+				width: 27.5%;
+				padding: 0.6em 0;
+				font-size: 1em;
+				text-align: center;
+			}
+		}
+	}
+}
+.login-toggle {
+	top: 0;
+	margin-top: 0;
+}
+.please-login {
+	text-align: center;
+	padding: 2.5em 0;
+	@include bp(700) {
+		padding: 5em 0;
+	}
+	h1 {
+		margin: 0 auto;
+		padding: 1em 0.5em;
+		border-radius: 5px;
+		color: white;
+		background: rgba(0, 70, 127, 0.75);
+		width: 90%;
+		font-size: 1em;
+		font-weight: 300;
+		@include bp(700) {
+			width: 70%;
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+		@include bp(1000) {
+			width: 50%;
+			font-size: 2em;
+		}
+	}
+}

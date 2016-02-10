@@ -9,7 +9,7 @@
  *
  * @package Primemovers
  */
-get_header('secure');
+get_header('login');
 while ( have_posts() ) : the_post();
 
 ?>
