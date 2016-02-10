@@ -344,192 +344,192 @@ function pw_rcp_add_user_fields_profile() {
 			<ol>
 				<li>
 					<select id="rcp_strength1" name="rcp_strength1">
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Activator') {echo 'selected';} ?>>Activator</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Analytical') {echo 'selected';} ?>>Analytical</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Arranger') {echo 'selected';} ?>>Arranger</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Belief') {echo 'selected';} ?>>Belief</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Command') {echo 'selected';} ?>>Command</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Communication') {echo 'selected';} ?>>Communication</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Competition') {echo 'selected';} ?>>Competition</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Connectedness') {echo 'selected';} ?>>Connectedness</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Consistency') {echo 'selected';} ?>>Consistency</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Context') {echo 'selected';} ?>>Context</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Deliberative') {echo 'selected';} ?>>Deliberative</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Developer') {echo 'selected';} ?>>Developer</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Discipline') {echo 'selected';} ?>>Discipline</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Empathy') {echo 'selected';} ?>>Empathy</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Focus') {echo 'selected';} ?>>Focus</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Futuristic') {echo 'selected';} ?>>Futuristic</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Harmony') {echo 'selected';} ?>>Harmony</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Ideation') {echo 'selected';} ?>>Ideation</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Includer') {echo 'selected';} ?>>Includer</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Individualization') {echo 'selected';} ?>>Individualization</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Input') {echo 'selected';} ?>>Input</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Intellection') {echo 'selected';} ?>>Intellection</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Learner') {echo 'selected';} ?>>Learner</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Maximizer') {echo 'selected';} ?>>Maximizer</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Positivity') {echo 'selected';} ?>>Positivity</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Relator') {echo 'selected';} ?>>Relator</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Responsibility') {echo 'selected';} ?>>Responsibility</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Restorative') {echo 'selected';} ?>>Restorative</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Self-Assurance') {echo 'selected';} ?>>Self-Assurance</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Significance') {echo 'selected';} ?>>Significance</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Strategic') {echo 'selected';} ?>>Strategic</option>
-						<option <?php if(esc_attr( $rcp_strength1 ) == 'Woo') {echo 'selected';} ?>>Woo</option>
+						<option <?php if($strength1 == 'Achiever') {echo 'selected';} ?>>Achiever</option>
+						<option <?php if($strength1 == 'Activator') {echo 'selected';} ?>>Activator</option>
+						<option <?php if($strength1 == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
+						<option <?php if($strength1 == 'Analytical') {echo 'selected';} ?>>Analytical</option>
+						<option <?php if($strength1 == 'Arranger') {echo 'selected';} ?>>Arranger</option>
+						<option <?php if($strength1 == 'Belief') {echo 'selected';} ?>>Belief</option>
+						<option <?php if($strength1 == 'Command') {echo 'selected';} ?>>Command</option>
+						<option <?php if($strength1 == 'Communication') {echo 'selected';} ?>>Communication</option>
+						<option <?php if($strength1 == 'Competition') {echo 'selected';} ?>>Competition</option>
+						<option <?php if($strength1 == 'Connectedness') {echo 'selected';} ?>>Connectedness</option>
+						<option <?php if($strength1 == 'Consistency') {echo 'selected';} ?>>Consistency</option>
+						<option <?php if($strength1 == 'Context') {echo 'selected';} ?>>Context</option>
+						<option <?php if($strength1 == 'Deliberative') {echo 'selected';} ?>>Deliberative</option>
+						<option <?php if($strength1 == 'Developer') {echo 'selected';} ?>>Developer</option>
+						<option <?php if($strength1 == 'Discipline') {echo 'selected';} ?>>Discipline</option>
+						<option <?php if($strength1 == 'Empathy') {echo 'selected';} ?>>Empathy</option>
+						<option <?php if($strength1 == 'Focus') {echo 'selected';} ?>>Focus</option>
+						<option <?php if($strength1 == 'Futuristic') {echo 'selected';} ?>>Futuristic</option>
+						<option <?php if($strength1 == 'Harmony') {echo 'selected';} ?>>Harmony</option>
+						<option <?php if($strength1 == 'Ideation') {echo 'selected';} ?>>Ideation</option>
+						<option <?php if($strength1 == 'Includer') {echo 'selected';} ?>>Includer</option>
+						<option <?php if($strength1 == 'Individualization') {echo 'selected';} ?>>Individualization</option>
+						<option <?php if($strength1 == 'Input') {echo 'selected';} ?>>Input</option>
+						<option <?php if($strength1 == 'Intellection') {echo 'selected';} ?>>Intellection</option>
+						<option <?php if($strength1 == 'Learner') {echo 'selected';} ?>>Learner</option>
+						<option <?php if($strength1 == 'Maximizer') {echo 'selected';} ?>>Maximizer</option>
+						<option <?php if($strength1 == 'Positivity') {echo 'selected';} ?>>Positivity</option>
+						<option <?php if($strength1 == 'Relator') {echo 'selected';} ?>>Relator</option>
+						<option <?php if($strength1 == 'Responsibility') {echo 'selected';} ?>>Responsibility</option>
+						<option <?php if($strength1 == 'Restorative') {echo 'selected';} ?>>Restorative</option>
+						<option <?php if($strength1 == 'Self-Assurance') {echo 'selected';} ?>>Self-Assurance</option>
+						<option <?php if($strength1 == 'Significance') {echo 'selected';} ?>>Significance</option>
+						<option <?php if($strength1 == 'Strategic') {echo 'selected';} ?>>Strategic</option>
+						<option <?php if($strength1 == 'Woo') {echo 'selected';} ?>>Woo</option>
 					</select>
 				</li>
 				<li>
 					<select id="rcp_strength2" name="rcp_strength2">
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
-						<option <?php if(esc_attr( $rcp_strength2 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
+						<option <?php if(esc_attr( $strength2 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
 					</select>
 				</li>
 				<li>
 					<select id="rcp_strength3" name="rcp_strength3">
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
-						<option <?php if(esc_attr( $rcp_strength3 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
+						<option <?php if(esc_attr( $strength3 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
 					</select>
 				</li>
 				<li>
 					<select id="rcp_strength4" name="rcp_strength4">
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
-						<option <?php if(esc_attr( $rcp_strength4 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
+						<option <?php if(esc_attr( $strength4 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
 					</select>
 				</li>
 				<li>
 					<select id="rcp_strength5" name="rcp_strength5">
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
-						<option <?php if(esc_attr( $rcp_strength5 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Analytical' ) {echo 'selected';} ?>>Analytical</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Arranger' ) {echo 'selected';} ?>>Arranger</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Belief' ) {echo 'selected';} ?>>Belief</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Command' ) {echo 'selected';} ?>>Command</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Communication' ) {echo 'selected';} ?>>Communication</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Competition' ) {echo 'selected';} ?>>Competition</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Connectedness' ) {echo 'selected';} ?>>Connectedness</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Consistency' ) {echo 'selected';} ?>>Consistency</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Context' ) {echo 'selected';} ?>>Context</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Deliberative' ) {echo 'selected';} ?>>Deliberative</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Developer' ) {echo 'selected';} ?>>Developer</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Discipline' ) {echo 'selected';} ?>>Discipline</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Empathy' ) {echo 'selected';} ?>>Empathy</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Focus' ) {echo 'selected';} ?>>Focus</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Futuristic' ) {echo 'selected';} ?>>Futuristic</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Harmony' ) {echo 'selected';} ?>>Harmony</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Ideation' ) {echo 'selected';} ?>>Ideation</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Includer' ) {echo 'selected';} ?>>Includer</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Individualization' ) {echo 'selected';} ?>>Individualization</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Input' ) {echo 'selected';} ?>>Input</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Intellection' ) {echo 'selected';} ?>>Intellection</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Learner' ) {echo 'selected';} ?>>Learner</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Maximizer' ) {echo 'selected';} ?>>Maximizer</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Positivity' ) {echo 'selected';} ?>>Positivity</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Relator' ) {echo 'selected';} ?>>Relator</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Responsibility' ) {echo 'selected';} ?>>Responsibility</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Restorative' ) {echo 'selected';} ?>>Restorative</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Self-Assurance' ) {echo 'selected';} ?>>Self-Assurance</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Significance' ) {echo 'selected';} ?>>Significance</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Strategic' ) {echo 'selected';} ?>>Strategic</option>
+						<option <?php if(esc_attr( $strength5 ) == 'Woo' ) {echo 'selected';} ?>>Woo</option>
 					</select>
 				</li>
 			</ol>
@@ -539,24 +539,24 @@ function pw_rcp_add_user_fields_profile() {
 			<ol>
 				<li>
 					<select id="rcp_gift1" name="rcp_gift1">
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Mercy' ) {echo 'selected';} ?>>Mercy</option>
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Prophecy' ) {echo 'selected';} ?>>Prophecy</option>
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Service' ) {echo 'selected';} ?>>Service</option>
-						<option <?php if(esc_attr( $rcp_gift1 ) == 'Teaching' ) {echo 'selected';} ?>>Teaching</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Mercy' ) {echo 'selected';} ?>>Mercy</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Prophecy' ) {echo 'selected';} ?>>Prophecy</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Service' ) {echo 'selected';} ?>>Service</option>
+						<option <?php if(esc_attr( $gift1 ) == 'Teaching' ) {echo 'selected';} ?>>Teaching</option>
 					</select>
 				</li>
 				<li>
 					<select id="rcp_gift2" name="rcp_gift2">
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Mercy' ) {echo 'selected';} ?>>Mercy</option>
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Prophecy' ) {echo 'selected';} ?>>Prophecy</option>
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Service' ) {echo 'selected';} ?>>Service</option>
-						<option <?php if(esc_attr( $rcp_gift2 ) == 'Teaching' ) {echo 'selected';} ?>>Teaching</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Mercy' ) {echo 'selected';} ?>>Mercy</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Prophecy' ) {echo 'selected';} ?>>Prophecy</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Service' ) {echo 'selected';} ?>>Service</option>
+						<option <?php if(esc_attr( $gift2 ) == 'Teaching' ) {echo 'selected';} ?>>Teaching</option>
 					</select>
 				</li>
 			</ol>
