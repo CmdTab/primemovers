@@ -71,9 +71,6 @@
 											<th class="holy-ambition">
 												<div>
 													Holy Ambition
-													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
-													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
-													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
 												</div>
 											</td>
 										</tr>
@@ -94,19 +91,22 @@
 												<td class="state"><?php echo get_user_meta($member->ID, 'rcp_state', true); ?></td>
 
 												<?php
-													$see_more = '<a href="#" class="more-ha"> <span>...</span> See More</a>';
+													$see_more = '<span>...</span><a href="#" class="more-ha">See More</a>';
 													$str = get_user_meta($member->ID, 'rcp_ha', true);
-													$out = strlen($str) > 30 ? substr($str,0,30). $see_more : $new_str;
+													$out = strlen($str) > 50 ? substr($str,0,50). $see_more : $new_str;
 													$table = '<tr class="users">';
 													$tableOpen = '<td class="holy-ambition-full">';
 													$tableClose = '</td>';
 
-													if(strlen($str) > 30){ 
+													if(strlen($str) > 50){ 
 
 										         	echo '<td class="holy-ambition">';
 														echo $out;
 														echo '</td>';
 														echo $tableOpen;
+														echo '<h2>';
+														echo get_user_meta($member->ID, 'first_name', true);
+														echo "'s Holy Ambition</h2>";
 														echo $str;
 														echo '<a href="#" class="more-ha close">Close</a>';
 														echo $tableClose;

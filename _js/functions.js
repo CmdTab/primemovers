@@ -148,10 +148,14 @@ function showMore() {
 	jQuery('.more-ha').click(function() {
 		if(jQuery('.holy-ambition-full').hasClass('expanded')) {
 			jQuery('.holy-ambition-full').removeClass('expanded');
-			jQuery('.holy-ambition-full').slideUp('slow');
+			jQuery('.holy-ambition-full').css('display' , 'none');
+			jQuery('.overlay').css('visibility' , 'hidden');
+			jQuery('.overlay').css('opacity' , '0');
 		} else {
 			jQuery('.holy-ambition-full').addClass('expanded');
-			jQuery('.holy-ambition-full').slideDown('slow');
+			jQuery('.holy-ambition-full').css('display' , 'block');
+			jQuery('.overlay').css('visibility' , 'visible');
+			jQuery('.overlay').css('opacity' , '1');
 		}
 		return false;
 	});

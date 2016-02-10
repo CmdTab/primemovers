@@ -41,19 +41,17 @@
 }
 section {
 	position: relative;
-	background: $blue;
 	width: 95%;
 	margin: 2em auto;
 	@include bp(700) {
 		padding-top: 2em;
+		background: $blue;
 	}
 	@include bp(1000) {
 		padding-top: 2.5em;
 	}
 }
 .table-container {
-	border: 1px solid $gray;
-	border-bottom: none;
 	table {
 		border-spacing: 0;
 		width: 100%;
@@ -93,13 +91,16 @@ section {
 		td {
 			&:before {
 				font-weight: 700;
-				margin-right: 1em;
 				width: 35%;
-			   padding: 0.8em 0.5em;
-				display: inline-block;
-				border-right: 1px solid $gray;
-				background: $blue;
-				color: white;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+			   padding: 1em 0 1em 1%;
+				display: block;
+				border-right: 1px solid darken( $light-gray, 10%);
+				background: $light-gray;
+				color: $black;
 				letter-spacing: 1px;
 				@include bp(480) {
 					width: 25%;
@@ -127,9 +128,10 @@ section {
 			}
 		}
 		.holy-ambition {
+			padding-bottom: 0.15em;
+			border-bottom: none;
 			&:before {
 				content: 'Holy Ambition';
-				padding: 1.5em 0.5em;
 			}
 		}
 		@include bp(700) {
@@ -228,54 +230,58 @@ section {
 		}
 	}
 	.users {
+		border: 1px solid darken( $light-gray, 10%);
 		@include bp(700) {
-			border-bottom: 1px solid $gray;
+			border-bottom: 1px solid darken( $light-gray, 10%);
 			border-top: none;
 		}
+		&:nth-child(even) {
+			td:before {
+				background: darken($light-gray, 5%);
+			}
+		}
 		td {
-			padding: 0;
+			padding: 0.75em 0 0 37%;
 			font-size: 0.7em;
 			width: 100%;
 			display: block;
 			min-height: 38px;
 			border: none;
 			position: relative;
-			border-bottom: 1px solid $gray;
+			border-bottom: 1px solid darken( $light-gray, 10%);
+			@include bp(480) {
+				padding: 0.75em 0 0 27%;
+			}
 			@include bp(700) {
 				padding: 0.5em;
-				border-right: 1px solid $gray;
+				border-right: 1px solid darken( $light-gray, 10%);
 				font-size: 0.85em;
 				display: table-cell;
 			}
 		}
-		.holy-ambition {
-			border-bottom: none;
-			/* &:after {
-				content: 'more';
-				height: 1em;
-				width: 1em;
-				position: absolute;
-				right: 1.75em;
-				bottom: 0.75em;
-				display: block;
-				cursor: pointer;
-			}
-			@include bp(700) {
-				&:after {
-					display: none;
-				}
-			} */
-		}
 		.holy-ambition-full {
-			width: 100%;
+			width: 80%;
 			display: none;
-			padding: 1em 4em 1em 1em;
-			height: 100%;
-			position: absolute;
+			padding: 2em;
+			height: auto;
+			position: fixed;
 			border: 1px solid $gray;
 			transform: translate(-50%, -50%);
 			top: 50%;
 			left: 50%;
+			z-index: 101;
+			font-size: 1em;
+			@include bp(800) {
+				width: 55%;
+			}
+			@include bp(1280) {
+				width: 45%;
+			}
+			h2 {
+				font-weight: 700;
+				margin: 0;
+				padding-bottom: 0.5em;
+			}
 		}
 	}
 }
@@ -287,7 +293,7 @@ section {
 		position: relative;
    	bottom: auto;
    	right: auto;
-   	padding-left: 0.25em;
+   	padding-left: 0.5em;
 	}
 	&:focus {
 		outline: none;
@@ -295,7 +301,7 @@ section {
 	&.close {
 		position: absolute;
 		bottom: auto;
-		right: 0.5em;
+		right: 0.875em;
 		top: 0.5em;
 	}
 	span {

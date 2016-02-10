@@ -333,11 +333,11 @@ function pw_rcp_add_user_fields_profile() {
 		<p class="subheading">This information will be filled out as you progress through the Primemovers process.</p>
 		<p class="custom-fields edit-ambition">
 			<label for="rcp_ha"><?php _e( 'My Holy Ambition (What I am going to do)', 'rcp' ); ?></label>
-			<textarea name="rcp_ha" id="rcp_ha" type="text" ><?php echo esc_attr( $ha ); ?></textarea>
+			<textarea name="rcp_ha" id="rcp_ha" type="text" rows="4"><?php echo esc_attr( $ha ); ?></textarea>
 		</p>
 		<p class="custom-fields edit-mission">
 			<label for="rcp_mission"><?php _e( 'My Mission Statement (Why I exist)', 'rcp' ); ?></label>
-			<textarea name="rcp_mission" id="rcp_mission" type="text"><?php echo esc_attr( $mission ); ?></textarea>
+			<textarea name="rcp_mission" id="rcp_mission" type="text" rows="4"><?php echo esc_attr( $mission ); ?></textarea>
 		</p>
 		<div class="option-list">
 			<h4>My Top Five Strengths</h4>
@@ -660,7 +660,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 			<label for="rcp_ha"><?php _e( 'Holy Ambition', 'rcp' ); ?></label>
 		</th>
 		<td>
-			<input name="rcp_ha" id="rcp_ha" type="text" value="<?php echo esc_attr( $ha ); ?>"/>
+			<textarea name="rcp_ha" id="rcp_ha" type="text" rows="4"><?php echo esc_attr( $ha ); ?></textarea>
 			<p class="description"><?php _e( 'The member\'s Holy Ambition', 'rcp' ); ?></p>
 		</td>
 	</tr>
@@ -669,7 +669,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 			<label for="rcp_mission"><?php _e( 'Mission Statement', 'rcp' ); ?></label>
 		</th>
 		<td>
-			<input name="rcp_mission" id="rcp_mission" type="text" value="<?php echo esc_attr( $mission ); ?>"/>
+			<textarea name="rcp_mission" id="rcp_mission" type="text" rows="4"><?php echo esc_attr( $mission ); ?></textarea>
 			<p class="description"><?php _e( 'The member\'s Mission Statement', 'rcp' ); ?></p>
 		</td>
 	</tr>
