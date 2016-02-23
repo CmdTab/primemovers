@@ -16,6 +16,7 @@ get_header(); ?>
 	</header><!-- #masthead -->
 	<?php if ( have_posts() ) : ?>
 	<div id="content" class="site-content group">
+		<?php if( rcp_is_active() ) : ?>
 	<div class="full-section secure-page">
 		<div class="group">
 			<article class="entry-content group secure-content branded-content">
@@ -91,15 +92,21 @@ get_header(); ?>
 					<?php $i++; ?>
 				<?php endwhile; ?>
 				<?php primemovers_content_nav( 'nav-below' ); ?>
-
+				</article>
+				<?php get_sidebar('newsletter'); ?>
+			</div><!-- #group -->
+			<?php else : ?>
+				<div class="full-section login-problem">
+					<div class="login-needed">Please use the login form above to see this content.</div>
+				</div>
+			<?php endif; ?>
 		<?php else : ?>
 
 			<?php get_template_part( 'no-results', 'archive' ); ?>
 
 		<?php endif; ?>
-			</article>
-			<?php get_sidebar('newsletter'); ?>
-		</div><!-- #group -->
+
+
 	</div><!-- #secure-page -->
 
 <?php get_footer('secure'); ?>

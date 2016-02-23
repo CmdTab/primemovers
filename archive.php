@@ -75,6 +75,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
+			<?php if( rcp_is_active() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -86,7 +87,11 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
-
+			<?php else : ?>
+				<div class="full-section login-problem">
+					<div class="login-needed">Please use the login form above to see this content.</div>
+				</div>
+			<?php endif; ?>
 			<?php primemovers_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>

@@ -280,7 +280,7 @@
     letter-spacing: 2px;
     font-weight: normal;
     font-size: 1.25em;
-    
+
 }
 .news-title h2 {
     margin: 1.5em 0 1em;
@@ -301,5 +301,22 @@
 	.news-title {
 		background: none;
 		padding: 0;
+	}
+}
+.branded-header {
+	#rcp_login_form {
+		background: none;
+		label {
+			color: #fff;
+		}
+		.rcp_lost_password {
+			a {
+				color: #fff;
+			}
+		}
+		#rcp_login_submit {
+			background: #fff;
+			color: $blue;
+		}
 	}
 }

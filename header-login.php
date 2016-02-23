@@ -59,22 +59,21 @@ get_currentuserinfo();
 				<span class="assistive-text">Navigation</span>
 			</a>
 
-			<?php if(rcp_is_active()) { ?>
+			<?php if(rcp_is_active()) : ?>
 			   <nav id="site-navigation" class="main-navigation" role="navigation">
 				<ul>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
 					</li>
-					<?php //if( $subscription_id == 'Alumni' ) { ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
 					</li>
-					<?php if( $subscription_id == 'Convener' ) { ?>
+					<?php if( $subscription_id == 'Convener' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
 					</li>
-					<?php }
-						if( $subscription_id == 'Facilitator' ) { ?>
+					<?php endif;
+						if( $subscription_id == 'Facilitator' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/facilitator">Facilitator</a>
 					</li>
@@ -82,7 +81,7 @@ get_currentuserinfo();
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
 					</li>
 
-					<?php } ?>
+					<?php endif; ?>
 					<li>
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
@@ -103,19 +102,11 @@ get_currentuserinfo();
 				<a href="<?php  echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
 			</div>
 
-			<?php } else { ?>
-				
+			<?php else : ?>
 				<div class="header-login">
 					<?php echo do_shortcode('[login_form]'); ?>
 				</div>
-			
-			<?php }
-			
-			?>
-
-			
-
-			
+			<?php endif;?>
 		</div>
 	</header><!-- #masthead -->
 

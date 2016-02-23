@@ -60,6 +60,7 @@ get_currentuserinfo();
 				<span aria-hidden="true" data-icon="&#x4e;"></span>
 				<span class="assistive-text">Navigation</span>
 			</a>
+			<?php if(rcp_is_active()) : ?>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<ul>
 					<li>
@@ -101,7 +102,16 @@ get_currentuserinfo();
 
 			</nav><!-- #site-navigation -->
 			<div class="user-info">
-				<strong>Welcome <?php echo $current_user->user_firstname; ?>!</strong>
-				<a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
+				<strong>Welcome <?php  echo $current_user->user_firstname; ?>!</strong>
+				<?php  if(current_user_can('publish_pages')): ?>
+				<a href = "http://secure.primemoversonline.com/wp-admin">Backend</a>
+				<?php  endif; ?>
+				<a href = "http://primemoversonline.com">Main Site</a>
+				<a href="<?php  echo esc_url( home_url( '/' ) ); ?>/edit-profile">Edit Profile</a>
+				<a href="<?php  echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
 			</div>
-
+		<?php else : ?>
+			<div class="header-login">
+				<?php echo do_shortcode('[login_form]'); ?>
+			</div>
+		<?php endif;?>

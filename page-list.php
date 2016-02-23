@@ -11,9 +11,9 @@
 	 */
 
 
-    get_header('secure');
+get_header('secure');
+if( rcp_is_active() ) :
 	while ( have_posts() ) : the_post();
-
 ?>
 
 			<div class="full-section secure-page">
@@ -25,9 +25,9 @@
 							<p class="disclaimer">This directory was created for Primemovers Alumni use only and with the permission of those who wish to be included. Please respect the privacy of others and refrain from sharing this information outside of the Primemovers community.</p>
 							<!-- <p><?php // the_field('sidebar_quote');?></p> -->
 						</header>
-						<form class="search-form">  
+						<form class="search-form">
 							<span class="search-field">
-								<label>Search for Alumni:</label>                                          
+								<label>Search for Alumni:</label>
 						   	<input type="text" id="search" placeholder="" />
 						   </span>
 						</form>
@@ -76,8 +76,8 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php 
-											$members = get_users('role=subscriber'); 
+										<?php
+											$members = get_users('role=subscriber');
 											foreach ( $members as $member ) :
 												$sub = new RCP_Member( $member->ID );
 												$status = $sub->get_status();
@@ -98,7 +98,7 @@
 													$tableOpen = '<td class="holy-ambition-full">';
 													$tableClose = '</td>';
 
-													if(strlen($str) > 50){ 
+													if(strlen($str) > 50){
 
 										         	echo '<td class="holy-ambition">';
 														echo $out;
@@ -112,7 +112,7 @@
 														echo $tableClose;
 														echo '</tr>';
 
-										    		} else { 
+										    		} else {
 
 										    			echo '<td class="holy-ambition">';
 														echo $str;
@@ -135,7 +135,10 @@
 				</div>
 			</div>
 
-			<?php endwhile; // end of the loop. ?>
-
-
+    <?php endwhile; // end of the loop. ?>
+<?php else : ?>
+	<div class="full-section login-problem">
+		<div class="login-needed">Please use the login form above to see this content.</div>
+	</div>
+<?php endif; ?>
 <?php get_footer('secure'); ?>

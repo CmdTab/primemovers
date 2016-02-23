@@ -54,25 +54,26 @@ get_currentuserinfo();
 			<div class="site-branding">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo.png"></a>
 			</div>
-			<a href = "#" class="nav-toggle">
+			<a href = "#" class="nav-toggle login-toggle">
 				<span aria-hidden="true" data-icon="&#x4e;"></span>
 				<span class="assistive-text">Navigation</span>
 			</a>
-			<nav id="site-navigation" class="main-navigation" role="navigation">
+
+			<?php if(rcp_is_active()) : ?>
+			   <nav id="site-navigation" class="main-navigation" role="navigation">
 				<ul>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
 					</li>
-					<?php //if( $subscription_id == 'Alumni' ) { ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
 					</li>
-					<?php if( $subscription_id == 'Convener' ) { ?>
+					<?php if( $subscription_id == 'Convener' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
 					</li>
-					<?php }
-						if( $subscription_id == 'Facilitator' ) { ?>
+					<?php endif;
+						if( $subscription_id == 'Facilitator' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/facilitator">Facilitator</a>
 					</li>
@@ -80,7 +81,7 @@ get_currentuserinfo();
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
 					</li>
 
-					<?php } ?>
+					<?php endif; ?>
 					<li>
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
@@ -89,17 +90,23 @@ get_currentuserinfo();
 					</li>
 				</ul>
 
-
 			</nav><!-- #site-navigation -->
+
 			<div class="user-info">
-				<strong>Welcome <?php echo $current_user->user_firstname; ?>!</strong>
-				<?php if(current_user_can('publish_pages')): ?>
+				<strong>Welcome <?php  echo $current_user->user_firstname; ?>!</strong>
+				<?php  if(current_user_can('publish_pages')): ?>
 				<a href = "http://secure.primemoversonline.com/wp-admin">Backend</a>
-				<?php endif; ?>
+				<?php  endif; ?>
 				<a href = "http://primemoversonline.com">Main Site</a>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>/edit-profile">Edit Profile</a>
-				<a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
+				<a href="<?php  echo esc_url( home_url( '/' ) ); ?>/edit-profile">Edit Profile</a>
+				<a href="<?php  echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
 			</div>
+
+			<?php else : ?>
+				<div class="header-login">
+					<?php echo do_shortcode('[login_form]'); ?>
+				</div>
+			<?php endif;?>
 		</div>
 	</header><!-- #masthead -->
 

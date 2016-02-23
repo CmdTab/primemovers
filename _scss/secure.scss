@@ -170,3 +170,15 @@
 .odd {
 	background: #efefef;
 }
+.login-problem {
+	padding: 4em 0;
+}
+.login-needed {
+	background: $light-gray;
+	padding: 2em 1.5em;
+	max-width: 25em;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 1.1em;
+	color: darken($light-gray, 35%);
+}

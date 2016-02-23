@@ -10,6 +10,7 @@
  * @package Primemovers
  */
 get_header('secure');
+if( rcp_is_active() ) :
 while ( have_posts() ) : the_post();
 
 ?>
@@ -89,7 +90,11 @@ echo '<li>' . '<a href="' . esc_attr(get_term_link($tax_term, $taxonomy)) . '" t
 				</div>
 			</div>
 
-			<?php endwhile; // end of the loop. ?>
-
+	<?php endwhile; // end of the loop. ?>
+<?php else : ?>
+	<div class="full-section login-problem">
+		<div class="login-needed">Please use the login form above to see this content.</div>
+	</div>
+<?php endif; ?>
 <?php //get_sidebar(); ?>
 <?php get_footer('secure'); ?>

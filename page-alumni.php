@@ -10,7 +10,8 @@
  * @package Primemovers
  */
 get_header('secure');
-while ( have_posts() ) : the_post();
+if( rcp_is_active() ) :
+	while ( have_posts() ) : the_post();
 
 ?>
 
@@ -30,7 +31,11 @@ while ( have_posts() ) : the_post();
 				</div>
 			</div>
 
-			<?php endwhile; // end of the loop. ?>
-
+	<?php endwhile; // end of the loop. ?>
+<?php else : ?>
+	<div class="full-section login-problem">
+		<div class="login-needed">Please use the login form above to see this content.</div>
+	</div>
+<?php endif; ?>
 <?php //get_sidebar(); ?>
 <?php get_footer('secure'); ?>

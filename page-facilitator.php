@@ -10,12 +10,13 @@
  * @package Primemovers
  */
 
-while ( have_posts() ) : the_post();
 if( rcp_is_paid_content('') ) {
     get_header('secure');
 } else {
 	get_header();
 }
+if( rcp_is_active() ) :
+    while ( have_posts() ) : the_post();
 ?>
 
 			<div class="full-section sub-page">
@@ -33,7 +34,11 @@ if( rcp_is_paid_content('') ) {
 				</div>
 			</div>
 
-			<?php endwhile; // end of the loop. ?>
-
+	<?php endwhile; // end of the loop. ?>
+<?php else : ?>
+	<div class="full-section login-problem">
+		<div class="login-needed">Please use the login form above to see this content.</div>
+	</div>
+<?php endif; ?>
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
