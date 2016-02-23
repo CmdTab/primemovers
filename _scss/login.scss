@@ -1,6 +1,7 @@
 .header-login {
 	width: 100%;
 	font-size: 0.75em;
+	position: relative;
 	padding: 2em 0 0;
 	@include bp(700) {
 		width: 50%;
@@ -12,6 +13,29 @@
 		width: 60%;
 		margin-left: 20%;
 		padding: 0;
+	}
+	.rcp_error.empty_username,
+	.rcp_error.empty_password {
+		position: absolute;
+		top: 0.5em;
+		right: 0;
+		padding-left: 0;
+		background: transparent;
+		color: #da3a3a;
+		z-index: 1;
+		@include bp(1000) {
+			top: auto;
+			right: auto;
+			bottom: -1.5em;
+			left: 0;
+		}
+	}
+	.rcp_error.empty_password {
+		top: 4.875em;
+		@include bp(1000) {
+			top: auto;
+			left: 45%;
+		}
 	}
 	#rcp_login_form,
 	#rcp_lostpassword_form {

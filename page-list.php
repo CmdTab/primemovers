@@ -18,7 +18,7 @@ if( rcp_is_active() ) :
 
 			<div class="full-section secure-page">
 				<div class="group">
-					<?php get_sidebar(); ?>
+					<?php //get_sidebar(); ?>
 					<article class="entry-content group secure-content">
 						<header class="secure-page-header">
 							<h1><?php the_title(); ?></h1>
@@ -93,12 +93,12 @@ if( rcp_is_active() ) :
 												<?php
 													$see_more = '<span>...</span><a href="#" class="more-ha">See More</a>';
 													$str = get_user_meta($member->ID, 'rcp_ha', true);
-													$out = strlen($str) > 50 ? substr($str,0,50). $see_more : $new_str;
+													$out = strlen($str) > 100 ? substr($str,0,100). $see_more : $new_str;
 													$table = '<tr class="users">';
 													$tableOpen = '<td class="holy-ambition-full">';
 													$tableClose = '</td>';
 
-													if(strlen($str) > 50){
+													if(strlen($str) > 100){
 
 										         	echo '<td class="holy-ambition">';
 														echo $out;

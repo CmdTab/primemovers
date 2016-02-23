@@ -38,7 +38,7 @@
 	</footer><!-- #colophon -->
 	<div class="copyright-bar group">
 		<div class="copyright">&copy; <?php echo date('Y'); ?> Primemovers</div>
-		<div class="lote">Primemovers is a ministry of <a href = "http://livingontheedge.org"><img src = "<?php bloginfo('template_directory'); ?>/_i/lote-logo.png"></a></div>
+		<!-- <div class="lote">Primemovers is a ministry of <a href = "http://livingontheedge.org"><img src = "<?php //bloginfo('template_directory'); ?>/_i/lote-logo.png"></a></div> -->
 	</div>
 	<div class="overlay">
 		<div class="overlay-container">

@@ -55,7 +55,7 @@ if (isset($_GET['checkemail'])) {
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="full-section form-header" role="banner">
 		<div class="form-branding">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo.png"></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo-old.png"></a>
 		</div>
 
 	</header><!-- #masthead -->

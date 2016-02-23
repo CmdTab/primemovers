@@ -202,12 +202,14 @@
 	margin: 0 0 0.25em;
 	padding: 0 0 0.25em;
 	border-bottom: 1px solid $light-gray;
+	font-weight: 700;
 }
 .subheading {
 	font-size: 0.75em;
 	margin: 0 0 1em;
 	font-style: italic;
 	color: $gray;
+	font-weight: 700;
 }
 .form-section {
 	margin: 2em 0 0;
@@ -224,5 +226,18 @@
 			font-weight: bold;
 			color: $gray;
 		}
+	}
+}
+.edit-subtitle {
+	font-weight: 700;
+	i {
+		font-weight: normal;
+		font-size: 0.8em;
+		font-style: italic;
+	}
+	span {
+		display: block;
+		font-style: italic;
+		padding: 0.5em 0;
 	}
 }

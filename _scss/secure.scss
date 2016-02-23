@@ -36,20 +36,7 @@
 	}
 }
 .secure-content {
-	@include bp(700) {
-		float: left;
-		width: 76%;
-		&.dash-content {
-			float: right;
-			width: 72%;
-		}
-	}
-	@include bp(1000) {
-		width: 82%;
-		&.dash-content {
-			width: 78%;
-		}
-	}
+	
 }
 .sidebar-intro {
 	padding: 1em 10%;

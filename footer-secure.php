@@ -62,7 +62,7 @@
 		</nav><!-- #site-navigation -->
 		<div class="copyright-bar group">
 
-			<div class="lote"><span>Primemovers is a ministry of</span><a href = "http://livingontheedge.org"><img src = "<?php bloginfo('template_directory'); ?>/_i/LOTE-logo-white.png"></a></div>
+			<!-- <div class="lote"><span>Primemovers is a ministry of</span><a href = "http://livingontheedge.org"><img src = "<?php // bloginfo('template_directory'); ?>/_i/LOTE-logo-white.png"></a></div> -->
 			<div class="copyright">&copy; <?php echo date('Y'); ?> Primemovers</div>
 		</div>
 	</footer>

@@ -327,15 +327,16 @@ function pw_rcp_add_user_fields_profile() {
 			<option value="work" <?php if(esc_attr( $type ) == 'work') {echo 'selected';} ?>>Work</option>
 		</select>
 	</p>
+
 	<div class="form-section">
 		<h2 class="form-title"><?php _e( 'Program Information', 'rcp' ); ?></h2>
 		<p class="subheading">This information will be filled out as you progress through the Primemovers process.</p>
 		<p class="custom-fields edit-ambition">
-			<label for="rcp_ha"><?php _e( 'My Holy Ambition (What I am going to do)', 'rcp' ); ?></label>
+			<label for="rcp_ha" class="edit-subtitle"><?php _e( 'My Holy Ambition <i>(What I am going to do):</i>', 'rcp' ); ?></label>
 			<textarea name="rcp_ha" id="rcp_ha" type="text" rows="4"><?php echo esc_attr( $ha ); ?></textarea>
 		</p>
 		<p class="custom-fields edit-mission">
-			<label for="rcp_mission"><?php _e( 'My Mission Statement (Why I exist)', 'rcp' ); ?></label>
+			<label for="rcp_mission" class="edit-subtitle"><?php _e( 'My Mission Statement <i>(Why I exist):</i>', 'rcp' ); ?></label>
 			<textarea name="rcp_mission" id="rcp_mission" type="text" rows="4"><?php echo esc_attr( $mission ); ?></textarea>
 		</p>
 		<div class="option-list">
@@ -343,6 +344,7 @@ function pw_rcp_add_user_fields_profile() {
 			<ol>
 				<li>
 					<select id="rcp_strength1" name="rcp_strength1">
+						<option <?php if(esc_attr( $strength1 ) == 'Select from List') {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $strength1 ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
 						<option <?php if(esc_attr( $strength1 ) == 'Activator') {echo 'selected';} ?>>Activator</option>
 						<option <?php if(esc_attr( $strength1 ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
@@ -381,6 +383,7 @@ function pw_rcp_add_user_fields_profile() {
 				</li>
 				<li>
 					<select id="rcp_strength2" name="rcp_strength2">
+						<option <?php if(esc_attr( $strength2 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $strength2 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
 						<option <?php if(esc_attr( $strength2 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
 						<option <?php if(esc_attr( $strength2 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
@@ -419,6 +422,7 @@ function pw_rcp_add_user_fields_profile() {
 				</li>
 				<li>
 					<select id="rcp_strength3" name="rcp_strength3">
+						<option <?php if(esc_attr( $strength3 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $strength3 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
 						<option <?php if(esc_attr( $strength3 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
 						<option <?php if(esc_attr( $strength3 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
@@ -457,6 +461,7 @@ function pw_rcp_add_user_fields_profile() {
 				</li>
 				<li>
 					<select id="rcp_strength4" name="rcp_strength4">
+						<option <?php if(esc_attr( $strength4 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $strength4 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
 						<option <?php if(esc_attr( $strength4 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
 						<option <?php if(esc_attr( $strength4 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
@@ -495,6 +500,7 @@ function pw_rcp_add_user_fields_profile() {
 				</li>
 				<li>
 					<select id="rcp_strength5" name="rcp_strength5">
+						<option <?php if(esc_attr( $strength5 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $strength5 ) == 'Achiever' ) {echo 'selected';} ?>>Achiever</option>
 						<option <?php if(esc_attr( $strength5 ) == 'Activator' ) {echo 'selected';} ?>>Activator</option>
 						<option <?php if(esc_attr( $strength5 ) == 'Adaptability' ) {echo 'selected';} ?>>Adaptability</option>
@@ -538,6 +544,7 @@ function pw_rcp_add_user_fields_profile() {
 			<ol>
 				<li>
 					<select id="rcp_gift1" name="rcp_gift1">
+						<option <?php if(esc_attr( $gift1 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $gift1 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
 						<option <?php if(esc_attr( $gift1 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
 						<option <?php if(esc_attr( $gift1 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
@@ -549,6 +556,7 @@ function pw_rcp_add_user_fields_profile() {
 				</li>
 				<li>
 					<select id="rcp_gift2" name="rcp_gift2">
+						<option <?php if(esc_attr( $gift2 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 						<option <?php if(esc_attr( $gift2 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
 						<option <?php if(esc_attr( $gift2 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
 						<option <?php if(esc_attr( $gift2 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
@@ -564,12 +572,12 @@ function pw_rcp_add_user_fields_profile() {
 	<div class="form-section">
 		<h2 class="form-title"><?php _e( 'Privacy Options', 'rcp' ); ?></h2>
 		<p class="custom-fields">
-			<label for="rcp_ambition"><?php _e( 'Alumni Directory', 'rcp' ); ?> <small>(Optional)</small></label>
-			<input name="rcp_ambition" id="rcp_ambition" type="checkbox" <?php if( esc_attr( $ambition )) {echo 'checked';} ?> /><span>I agree for my name, email, city, state and Holy Ambition overview to be viewable on the Primemovers Alumni Directory hosted on this secure Primemovers website.</span>
+			<label for="rcp_privacy" class="edit-subtitle"><?php _e( 'Privacy', 'rcp' ); ?> <small>(Required)</small></label>
+			<input name="rcp_privacy" id="rcp_privacy" type="checkbox" <?php if( esc_attr( $privacy )) {echo 'checked';} ?>/><span>I agree to keep the content of the website within the Primemovers community only</span>
 		</p>
 		<p class="custom-fields">
-			<label for="rcp_privacy"><?php _e( 'Privacy', 'rcp' ); ?> <small>(Required)</small></label>
-			<input name="rcp_privacy" id="rcp_privacy" type="checkbox" <?php if( esc_attr( $privacy )) {echo 'checked';} ?>/><span>I agree to keep the content of the website within the Primemovers community only</span>
+			<label for="rcp_ambition" class="edit-subtitle"><?php _e( 'Alumni Directory', 'rcp' ); ?> <small>(Optional)</small></label>
+			<input name="rcp_ambition" id="rcp_ambition" type="checkbox" <?php if( esc_attr( $ambition )) {echo 'checked';} ?> /><span>I agree for my name, email, city, state and Holy Ambition overview to be viewable on the Primemovers Alumni Directory hosted on this secure Primemovers website.</span>
 		</p>
 	</div>
 
@@ -678,6 +686,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 		</th>
 		<td>
 			<select name="rcp_strength1" id="rcp_strength1" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( esc_attr( $strength1 ) ) == 'Select from List') {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( esc_attr( $strength1 ) ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
 				<option <?php if(esc_attr( esc_attr( $strength1 ) ) == 'Activator') {echo 'selected';} ?>>Activator</option>
 				<option <?php if(esc_attr( esc_attr( $strength1 ) ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
@@ -714,6 +723,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<option <?php if(esc_attr( esc_attr( $strength1 ) ) == 'Woo') {echo 'selected';} ?>>Woo</option>
 			</select>
 			<select name="rcp_strength2" id="rcp_strength2" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( $strength2 ) == 'Select from List') {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( $strength2 ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
 				<option <?php if(esc_attr( $strength2 ) == 'Activator') {echo 'selected';} ?>>Activator</option>
 				<option <?php if(esc_attr( $strength2 ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
@@ -750,6 +760,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<option <?php if(esc_attr( $strength2 ) == 'Woo') {echo 'selected';} ?>>Woo</option>
 			</select>
 			<select name="rcp_strength3" id="rcp_strength3" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( $strength3 ) == 'Select from List') {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( $strength3 ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
 				<option <?php if(esc_attr( $strength3 ) == 'Activator') {echo 'selected';} ?>>Activator</option>
 				<option <?php if(esc_attr( $strength3 ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
@@ -786,6 +797,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<option <?php if(esc_attr( $strength3 ) == 'Woo') {echo 'selected';} ?>>Woo</option>
 			</select>
 			<select name="rcp_strength4" id="rcp_strength4" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( $strength4 ) == 'Select from List') {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( $strength4 ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
 				<option <?php if(esc_attr( $strength4 ) == 'Activator') {echo 'selected';} ?>>Activator</option>
 				<option <?php if(esc_attr( $strength4 ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
@@ -822,6 +834,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<option <?php if(esc_attr( $strength4 ) == 'Woo') {echo 'selected';} ?>>Woo</option>
 			</select>
 			<select name="rcp_strength5" id="rcp_strength5" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( $strength5 ) == 'Select from List') {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( $strength5 ) == 'Achiever') {echo 'selected';} ?>>Achiever</option>
 				<option <?php if(esc_attr( $strength5 ) == 'Activator') {echo 'selected';} ?>>Activator</option>
 				<option <?php if(esc_attr( $strength5 ) == 'Adaptability') {echo 'selected';} ?>>Adaptability</option>
@@ -865,6 +878,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 		</th>
 		<td>
 			<select id="rcp_gift1" name="rcp_gift1" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( $gift1 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( $gift1 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
 				<option <?php if(esc_attr( $gift1 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
 				<option <?php if(esc_attr( $gift1 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>
@@ -874,6 +888,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<option <?php if(esc_attr( $gift1 ) == 'Teaching' ) {echo 'selected';} ?>>Teaching</option>
 			</select>
 			<select id="rcp_gift2" name="rcp_gift2" style="display: block; margin-bottom: 0.5em;">
+				<option <?php if(esc_attr( $gift2 ) == 'Select from List' ) {echo 'selected';} ?>>Select from List</option>
 				<option <?php if(esc_attr( $gift2 ) == 'Exhortation' ) {echo 'selected';} ?>>Exhortation</option>
 				<option <?php if(esc_attr( $gift2 ) == 'Giving' ) {echo 'selected';} ?>>Giving</option>
 				<option <?php if(esc_attr( $gift2 ) == 'Leadership' ) {echo 'selected';} ?>>Leadership</option>

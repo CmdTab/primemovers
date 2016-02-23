@@ -15,16 +15,14 @@
 		if(rcp_is_active()) {
    		get_header('secure');
 		} else {
-			get_header('login');
+			get_header('form');
 		?> 
-			<div class="please-login">
-				<h1>Login above to view this content.</h1>
-			</div>
+			
 		<?php }
 
 	?>
 
-				<?php //get_template_part( 'content', 'form' ); ?>
+				<?php get_template_part( 'content', 'form' ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
