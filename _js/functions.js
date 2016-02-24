@@ -122,14 +122,14 @@ function contentBlockHeight() {
 			jQuery(this).next('.even').css('height',oddHeight);
 		}
 	});
-}	
+}
 function sortTable() {
-	// call the tablesorter plugin, the magic happens in the markup 
-   jQuery("#alumniTable").tablesorter({ 
+	// call the tablesorter plugin, the magic happens in the markup
+   jQuery("#alumniTable").tablesorter({
      	sortList: [[1,0]],
      	headers: { 4: { sorter: false  },
     	}
-    });  
+    });
 }
 
 function searchTable() {
@@ -146,18 +146,18 @@ function searchTable() {
 
 function showMore() {
 	jQuery('.more-ha').click(function() {
-		if(jQuery('.holy-ambition-full').hasClass('expanded')) {
-			jQuery('.holy-ambition-full').removeClass('expanded');
-			jQuery('.holy-ambition-full').css('display' , 'none');
-			jQuery('.overlay').css('visibility' , 'hidden');
-			jQuery('.overlay').css('opacity' , '0');
-		} else {
-			jQuery('.holy-ambition-full').addClass('expanded');
-			jQuery('.holy-ambition-full').css('display' , 'block');
-			jQuery('.overlay').css('visibility' , 'visible');
-			jQuery('.overlay').css('opacity' , '1');
-		}
+		var ambition = jQuery(this).parent('td').siblings('.holy-ambition-full');
+		ambition.addClass('expanded');
+		ambition.css('display' , 'block');
+		jQuery('.overlay').css('visibility' , 'visible');
+		jQuery('.overlay').css('opacity' , '1');
 		return false;
+	});
+	jQuery('.close').click(function() {
+		jQuery(this).parent('.holy-ambition-full').removeClass('expanded');
+		jQuery(this).parent('.holy-ambition-full').css('display' , 'none');
+		jQuery('.overlay').css('visibility' , 'hidden');
+		jQuery('.overlay').css('opacity' , '0');
 	});
 }
 

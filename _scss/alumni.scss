@@ -36,7 +36,7 @@
 		top: 0.25em;
 		left: 0.55em;
 		color: $gray;
-		
+
 	}
 }
 section {
@@ -117,6 +117,11 @@ section {
 				content: 'Last Name';
 			}
 		}
+		.email {
+			&:before {
+				content: 'Email';
+			}
+		}
 		.city {
 			&:before {
 				content: 'City';
@@ -142,10 +147,14 @@ section {
 			}
 			.first-name,
 			.first-name div {
-				width: 15%;
+				width: 10%;
 			}
 			.last-name,
 			.last-name div {
+				width: 15%;
+			}
+			.email,
+			.email div {
 				width: 15%;
 			}
 			.city,
@@ -158,7 +167,7 @@ section {
 			}
 			.holy-ambition,
 			.holy-ambition div {
-				width: 50%;
+				width: 40%;
 			}
 			.holy-see-more {
 				display: block;
@@ -299,18 +308,18 @@ section {
 	&:focus {
 		outline: none;
 	}
-	&.close {
-		position: absolute;
-		bottom: auto;
-		right: 0.875em;
-		top: 0.5em;
-	}
 	span {
 		display: none;
 		@include bp(700) {
 			display: inline;
 		}
 	}
+}
+.close {
+	position: absolute;
+	bottom: auto;
+	right: 0.875em;
+	top: 0.5em;
 }
 .sticky-nav {
 	display: none;

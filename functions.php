@@ -327,7 +327,17 @@ function pw_rcp_add_user_fields_profile() {
 			<option value="work" <?php if(esc_attr( $type ) == 'work') {echo 'selected';} ?>>Work</option>
 		</select>
 	</p>
-
+	<div class="form-section">
+		<h2 class="form-title"><?php _e( 'Privacy Options', 'rcp' ); ?></h2>
+		<p class="custom-fields">
+			<label for="rcp_privacy" class="edit-subtitle"><?php _e( 'Privacy', 'rcp' ); ?> <small>(Required)</small></label>
+			<input name="rcp_privacy" id="rcp_privacy" type="checkbox" <?php if( esc_attr( $privacy )) {echo 'checked';} ?>/><span>I agree to keep the content of the website within the Primemovers community only</span>
+		</p>
+		<p class="custom-fields">
+			<label for="rcp_ambition" class="edit-subtitle"><?php _e( 'Alumni Directory', 'rcp' ); ?> <small>(Optional)</small></label>
+			<input name="rcp_ambition" id="rcp_ambition" type="checkbox" <?php if( esc_attr( $ambition )) {echo 'checked';} ?> /><span>I agree for my name, email, city, state and Holy Ambition overview to be viewable on the Primemovers Alumni Directory hosted on this secure Primemovers website.</span>
+		</p>
+	</div>
 	<div class="form-section">
 		<h2 class="form-title"><?php _e( 'Program Information', 'rcp' ); ?></h2>
 		<p class="subheading">This information will be filled out as you progress through the Primemovers process.</p>
@@ -570,15 +580,7 @@ function pw_rcp_add_user_fields_profile() {
 		</div>
 	</div>
 	<div class="form-section">
-		<h2 class="form-title"><?php _e( 'Privacy Options', 'rcp' ); ?></h2>
-		<p class="custom-fields">
-			<label for="rcp_privacy" class="edit-subtitle"><?php _e( 'Privacy', 'rcp' ); ?> <small>(Required)</small></label>
-			<input name="rcp_privacy" id="rcp_privacy" type="checkbox" <?php if( esc_attr( $privacy )) {echo 'checked';} ?>/><span>I agree to keep the content of the website within the Primemovers community only</span>
-		</p>
-		<p class="custom-fields">
-			<label for="rcp_ambition" class="edit-subtitle"><?php _e( 'Alumni Directory', 'rcp' ); ?> <small>(Optional)</small></label>
-			<input name="rcp_ambition" id="rcp_ambition" type="checkbox" <?php if( esc_attr( $ambition )) {echo 'checked';} ?> /><span>I agree for my name, email, city, state and Holy Ambition overview to be viewable on the Primemovers Alumni Directory hosted on this secure Primemovers website.</span>
-		</p>
+		<h2 class="form-title"><?php _e( 'Change Password', 'rcp' ); ?></h2>
 	</div>
 
 	<?php
@@ -1096,7 +1098,7 @@ function wpse_retrieve_password_message( $message, $key ){
 }
 
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Login Form Settings',
 		'menu_title'	=> 'Login Settings',
@@ -1104,5 +1106,5 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 }

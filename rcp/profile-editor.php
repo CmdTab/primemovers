@@ -53,11 +53,11 @@ if ( is_user_logged_in() ):
 			<?php do_action( 'rcp_profile_editor_after', $current_user->ID ); ?>
 
 			<p id="rcp_profile_password_wrap">
-				<label for="rcp_user_pass"><?php _e( 'Change Password', 'rcp' ); ?></label>
+				<label for="rcp_user_pass"><?php _e( 'New Password', 'rcp' ); ?></label>
 				<input name="rcp_new_user_pass1" id="rcp_new_user_pass1" class="password rcp-input" type="password"/>
 			</p>
 			<p id="rcp_profile_password_confirm_wrap">
-				<label for="rcp_user_pass"><?php _e( 'Re-enter Password', 'rcp' ); ?></label>
+				<label for="rcp_user_pass"><?php _e( 'Re-enter New Password', 'rcp' ); ?></label>
 				<input name="rcp_new_user_pass2" id="rcp_new_user_pass2" class="password rcp-input" type="password"/>
 			</p>
 			<p class="rcp_password_change_notice edit-subtitle"><?php _e( '<span>Please note after changing your password, you must log back in.</span>', 'rcp' ); ?></p>
@@ -67,7 +67,7 @@ if ( is_user_logged_in() ):
 				<input type="hidden" name="rcp_redirect" value="<?php echo esc_url( rcp_get_current_url() ); ?>" />
 				<input name="rcp_profile_editor_submit" id="rcp_profile_editor_submit" type="submit" class="rcp_submit" value="<?php _e( 'Save Changes', 'rcp' ); ?>"/>
 			</p>
-			
+
 		</fieldset>
 	</form><!-- #rcp_profile_editor_form -->
 

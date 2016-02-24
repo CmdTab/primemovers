@@ -19,7 +19,7 @@ if( rcp_is_active() ) :
 			<div class="full-section secure-page">
 				<div class="group">
 					<?php //get_sidebar(); ?>
-					<article class="entry-content group secure-content">
+					<article class="entry-content group list-content">
 						<header class="secure-page-header">
 							<h1><?php the_title(); ?></h1>
 							<p class="disclaimer">This directory was created for Primemovers Alumni use only and with the permission of those who wish to be included. Please respect the privacy of others and refrain from sharing this information outside of the Primemovers community.</p>
@@ -27,7 +27,7 @@ if( rcp_is_active() ) :
 						</header>
 						<form class="search-form">
 							<span class="search-field">
-								<label>Search for Alumni:</label>
+								<label>Search any field:</label>
 						   	<input type="text" id="search" placeholder="" />
 						   </span>
 						</form>
@@ -36,17 +36,25 @@ if( rcp_is_active() ) :
 								<table id="alumniTable" class="tablesorter alumni-list">
 									<thead>
 										<tr class="titles">
-											<th class="first-name">
+											<th class="last-name">
 												<div>
-													First Name
+													Last
 													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
 													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
 													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
 												</div>
 											</td>
-											<th class="last-name">
+											<th class="first-name">
 												<div>
-													Last Name
+													First
+													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
+													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
+													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
+												</div>
+											</td>
+											<th class="email">
+												<div>
+													Email
 													<svg class="icon icon-sort"><use xlink:href="#icon-sort"></use></svg>
 													<svg class="icon icon-sort-asc"><use xlink:href="#icon-sort-asc"></use></svg>
 													<svg class="icon icon-sort-desc"><use xlink:href="#icon-sort-desc"></use></svg>
@@ -77,7 +85,7 @@ if( rcp_is_active() ) :
 									</thead>
 									<tbody>
 										<?php
-											$members = get_users('role=subscriber');
+											$members = get_users();
 											foreach ( $members as $member ) :
 												$sub = new RCP_Member( $member->ID );
 												$status = $sub->get_status();
@@ -85,22 +93,23 @@ if( rcp_is_active() ) :
 												if(get_user_meta($member->ID, 'rcp_ambition', true) == 1):
 										?>
 											<tr class="users">
-												<td class="first-name"><?php echo get_user_meta($member->ID, 'first_name', true); ?></td>
 												<td class="last-name"><?php echo get_user_meta($member->ID, 'last_name', true); ?></td>
+												<td class="first-name"><?php echo get_user_meta($member->ID, 'first_name', true); ?></td>
+												<td class="email"><?php echo get_userdata($member->ID)->user_email; ?></td>
 												<td class="city"><?php echo get_user_meta($member->ID, 'rcp_city', true); ?></td>
 												<td class="state"><?php echo get_user_meta($member->ID, 'rcp_state', true); ?></td>
 
 												<?php
 													$see_more = '<span>...</span><a href="#" class="more-ha">See More</a>';
 													$str = get_user_meta($member->ID, 'rcp_ha', true);
-													$out = strlen($str) > 100 ? substr($str,0,100). $see_more : $new_str;
+													$out = strlen($str) > 100 ? substr($str,0,150). $see_more : $new_str;
 													$table = '<tr class="users">';
 													$tableOpen = '<td class="holy-ambition-full">';
 													$tableClose = '</td>';
 
 													if(strlen($str) > 100){
 
-										         	echo '<td class="holy-ambition">';
+											         	echo '<td class="holy-ambition">';
 														echo $out;
 														echo '</td>';
 														echo $tableOpen;
@@ -108,7 +117,7 @@ if( rcp_is_active() ) :
 														echo get_user_meta($member->ID, 'first_name', true);
 														echo "'s Holy Ambition</h2>";
 														echo $str;
-														echo '<a href="#" class="more-ha close">Close</a>';
+														echo '<a href="#" class="close">Close</a>';
 														echo $tableClose;
 														echo '</tr>';
 
