@@ -126,7 +126,7 @@ function contentBlockHeight() {
 function sortTable() {
 	// call the tablesorter plugin, the magic happens in the markup
    jQuery("#alumniTable").tablesorter({
-     	sortList: [[1,0]],
+     	sortList: [[0,0]],
      	headers: { 4: { sorter: false  },
     	}
     });

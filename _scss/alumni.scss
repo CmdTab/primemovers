@@ -12,8 +12,8 @@
 			width: 75%;
 		}
 		@include bp(700) {
-			right: 2.5%;
-			left: auto;
+			left: 2.5%;
+			right: auto;
 			width: 100%;
 			max-width: 20em;
 		}

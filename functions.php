@@ -1009,12 +1009,9 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		update_user_meta( $user_id, 'rcp_privacy', $_POST['rcp_privacy'] );
 	}
 
-	if( ! empty( $_POST['rcp_ha'] ) ) {
-		update_user_meta( $user_id, 'rcp_ha', sanitize_text_field( $_POST['rcp_ha'] ) );
-	}
-	if( ! empty( $_POST['rcp_mission'] ) ) {
-		update_user_meta( $user_id, 'rcp_mission', sanitize_text_field( $_POST['rcp_mission'] ) );
-	}
+
+	update_user_meta( $user_id, 'rcp_ha', sanitize_text_field( $_POST['rcp_ha'] ) );
+	update_user_meta( $user_id, 'rcp_mission', sanitize_text_field( $_POST['rcp_mission'] ) );
 
 	update_user_meta( $user_id, 'rcp_strength1', $_POST['rcp_strength1'] );
 	update_user_meta( $user_id, 'rcp_strength2', $_POST['rcp_strength2'] );
