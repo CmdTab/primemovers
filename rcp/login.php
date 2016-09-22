@@ -6,7 +6,7 @@
 	<form id="rcp_login_form"  class="rcp_form" method="POST" action="<?php echo esc_url( rcp_get_current_url() ); ?>">
 		<fieldset class="rcp_login_data group">
 			<p class="user-field">
-				<label for="rcp_user_Login"><?php _e( 'Username', 'rcp' ); ?></label>
+				<label for="rcp_user_Login"><?php _e( 'Username/Email', 'rcp' ); ?></label>
 				<input name="rcp_user_login" id="rcp_user_login" class="required" type="text"/>
 			</p>
 			<p class="pass-field">
