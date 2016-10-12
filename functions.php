@@ -278,27 +278,57 @@ add_action( 'rcp_after_password_registration_field', 'pw_rcp_add_user_fields' );
  */
 
 function pw_rcp_add_user_fields_profile() {
+	$userid = get_current_user_id();
+	$address   = get_user_meta( $userid, 'rcp_address', true );
+	$city      = get_user_meta( $userid, 'rcp_city', true );
+	$state     = get_user_meta( $userid, 'rcp_state', true );
+	$zip       = get_user_meta( $userid, 'rcp_zip', true );
+	$contact   = get_user_meta( $userid, 'rcp_contact', true );
+	$type      = get_user_meta( $userid, 'rcp_type', true );
+	$mobile    = get_user_meta( $userid, 'rcp_mobile', true );
+	$home      = get_user_meta( $userid, 'rcp_home', true );
+	$work      = get_user_meta( $userid, 'rcp_work', true );
+	$ambition  = get_user_meta( $userid, 'rcp_ambition', true );
+	$privacy   = get_user_meta( $userid, 'rcp_privacy', true );
+	$ha        = get_user_meta( $userid, 'rcp_ha', true );
+	$mission   = get_user_meta( $userid, 'rcp_mission', true );
+	$strength1 = get_user_meta( $userid, 'rcp_strength1', true );
+	$strength2 = get_user_meta( $userid, 'rcp_strength2', true );
+	$strength3 = get_user_meta( $userid, 'rcp_strength3', true );
+	$strength4 = get_user_meta( $userid, 'rcp_strength4', true );
+	$strength5 = get_user_meta( $userid, 'rcp_strength5', true );
+	$gift1     = get_user_meta( $userid, 'rcp_gift1', true );
+	$gift2     = get_user_meta( $userid, 'rcp_gift2', true );
+	$zohoid	   = get_user_meta( $userid, 'rcp_zohoid', true );
+	if($zohoid == NULL) {
+		$userdata = get_userdata($userid);
+		$firstname   = $userdata->first_name;
+		$lastname   = $userdata->last_name;
+		$useremail = $userdata->user_email;
+		header("Content-type: application/xml");
+		$token="1813e0019dcc82d21a0b7609365ed50a";
+		$search = "&criteria=(Email:".$useremail.")";
+		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+		$result = curl_exec($ch);
+		curl_close($ch);
+		$json = json_decode($result);
+		//var_dump($json->response->result->Contacts->row->FL);
+		$rows = $json->response->result->Contacts->row->FL;
+		foreach($rows as $row) {
+		    if ($row->val == 'CONTACTID') {
+		        $zohoid = $row->content;
+		    }
+		}
+	}
 
-	$address   = get_user_meta( get_current_user_id(), 'rcp_address', true );
-	$city      = get_user_meta( get_current_user_id(), 'rcp_city', true );
-	$state     = get_user_meta( get_current_user_id(), 'rcp_state', true );
-	$zip       = get_user_meta( get_current_user_id(), 'rcp_zip', true );
-	$contact   = get_user_meta( get_current_user_id(), 'rcp_contact', true );
-	$type      = get_user_meta( get_current_user_id(), 'rcp_type', true );
-	$mobile    = get_user_meta( get_current_user_id(), 'rcp_mobile', true );
-	$home      = get_user_meta( get_current_user_id(), 'rcp_home', true );
-	$work      = get_user_meta( get_current_user_id(), 'rcp_work', true );
-	$ambition  = get_user_meta( get_current_user_id(), 'rcp_ambition', true );
-	$privacy   = get_user_meta( get_current_user_id(), 'rcp_privacy', true );
-	$ha        = get_user_meta( get_current_user_id(), 'rcp_ha', true );
-	$mission   = get_user_meta( get_current_user_id(), 'rcp_mission', true );
-	$strength1 = get_user_meta( get_current_user_id(), 'rcp_strength1', true );
-	$strength2 = get_user_meta( get_current_user_id(), 'rcp_strength2', true );
-	$strength3 = get_user_meta( get_current_user_id(), 'rcp_strength3', true );
-	$strength4 = get_user_meta( get_current_user_id(), 'rcp_strength4', true );
-	$strength5 = get_user_meta( get_current_user_id(), 'rcp_strength5', true );
-	$gift1     = get_user_meta( get_current_user_id(), 'rcp_gift1', true );
-	$gift2     = get_user_meta( get_current_user_id(), 'rcp_gift2', true );
 	?>
 
 	<p class="custom-fields">
@@ -579,6 +609,7 @@ function pw_rcp_add_user_fields_profile() {
 			</ol>
 		</div>
 	</div>
+	<input name="rcp_zohoid" id="rcp_zohoid" type="hidden" value="<?php echo esc_attr( $zohoid ); ?>"/>
 	<div class="form-section">
 		<h2 class="form-title"><?php _e( 'Change Password', 'rcp' ); ?></h2>
 	</div>
@@ -610,8 +641,46 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 	$strength5 = get_user_meta( $user_id, 'rcp_strength5', true );
 	$gift1     = get_user_meta( $user_id, 'rcp_gift1', true );
 	$gift2     = get_user_meta( $user_id, 'rcp_gift2', true );
+	$zohoid    = get_user_meta( $user_id, 'rcp_zohoid', true );
+	if($zohoid == NULL) {
+		$userdata = get_userdata($user_id);
+		$firstname   = $userdata->first_name;
+		$lastname   = $userdata->last_name;
+		$useremail = $userdata->user_email;
+		header("Content-type: application/xml");
+		$token="1813e0019dcc82d21a0b7609365ed50a";
+		$search = "&criteria=(Email:".$useremail.")";
+		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+		$result = curl_exec($ch);
+		curl_close($ch);
+		$json = json_decode($result);
+		//var_dump($json->response->result->Contacts->row->FL);
+		$rows = $json->response->result->Contacts->row->FL;
+		foreach($rows as $row) {
+		    if ($row->val == 'CONTACTID') {
+		        $zohoid = $row->content;
+		    }
+		}
+	}
 
 	?>
+	<tr valign="top">
+		<th scope="row" valign="top">
+			<label for="rcp_zohoid"><?php _e( 'Zoho ID', 'rcp' ); ?></label>
+		</th>
+		<td>
+			<input name="rcp_zohoid" id="rcp_zohoid" type="text" value="<?php echo esc_attr( $zohoid ); ?>"/>
+			<p class="description"><?php _e( 'The member\'s ID in Zoho. Not visible to member', 'rcp' ); ?></p>
+		</td>
+	</tr>
 	<tr valign="top">
 		<th scope="row" valign="top">
 			<label for="rcp_address"><?php _e( 'Address', 'rcp' ); ?></label>
@@ -942,21 +1011,68 @@ add_action( 'rcp_form_errors', 'pw_rcp_validate_user_fields_on_register', 10 );
  *
  */
 function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
+	if( ! empty( $posted['rcp_user_first'] ) ) {
+		$regfirstxml = '<FL val="First Name">'.$posted['rcp_user_first'].'</FL>';
+	}
+	if( ! empty( $posted['rcp_user_last'] ) ) {
+		$reglastxml = '<FL val="Last Name">'.$posted['rcp_user_last'].'</FL>';
+	}
+	if( ! empty( $posted['rcp_user_email'] ) ) {
+		$regemailxml = '<FL val="Email">'.$posted['rcp_user_email'].'</FL>';
+		$useremail = $posted['rcp_user_email'];
+		header("Content-type: application/xml");
+		$token="1813e0019dcc82d21a0b7609365ed50a";
+		$search = "&criteria=(Email:".$useremail.")";
+		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+		$result = curl_exec($ch);
+		curl_close($ch);
+		$json = json_decode($result);
+		//var_dump($json->response->result->Contacts->row->FL);
+		$rows = $json->response->result->Contacts->row->FL;
+		foreach($rows as $row) {
+		    if ($row->val == 'CONTACTID') {
+		        $regzohoid = $row->content;
+		    }
+		}
+		if($regzohoid) {
+			update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $zohoid ) );
+		}
+	}
 
 	if( ! empty( $posted['rcp_address'] ) ) {
 		update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $posted['rcp_address'] ) );
+		$regaddressxml = '<FL val="Mailing Street">'.$posted['rcp_address'].'</FL>';
 	}
 	if( ! empty( $posted['rcp_city'] ) ) {
 		update_user_meta( $user_id, 'rcp_city', sanitize_text_field( $posted['rcp_city'] ) );
+		$regcityxml = '<FL val="Mailing City">'.$posted['rcp_city'].'</FL>';
 	}
 	if( ! empty( $posted['rcp_state'] ) ) {
 		update_user_meta( $user_id, 'rcp_state', sanitize_text_field( $posted['rcp_state'] ) );
+		$regstatexml = '<FL val="Mailing State">'.$posted['rcp_state'].'</FL>';
 	}
 	if( ! empty( $posted['rcp_zip'] ) ) {
 		update_user_meta( $user_id, 'rcp_zip', sanitize_text_field( $posted['rcp_zip'] ) );
+		$regzipxml = '<FL val="Mailing Zip">'.$posted['rcp_zip'].'</FL>';
 	}
 	if( ! empty( $posted['rcp_contact'] ) ) {
 		update_user_meta( $user_id, 'rcp_contact', sanitize_text_field( $posted['rcp_contact']));
+		if($posted['rcp_type'] == 'mobile') {
+			$phonetype = 'Mobile';
+		} elseif($posted['rcp_type'] == 'home') {
+			$phonetype = 'Home Phone';
+		} else {
+			$phonetype = 'Phone';
+		}
+		$regcontactxml = '<FL val="'.$phonetype.'">'.$posted['rcp_contact'].'</FL>';
 	}
 	if( ! empty( $posted['rcp_type'] ) ) {
 		update_user_meta( $user_id, 'rcp_type', sanitize_text_field( $posted['rcp_type']));
@@ -972,6 +1088,35 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 		update_user_meta( $user_id, 'rcp_privacy', 1 );
 	}
 
+	header("Content-type: application/xml");
+	$token="1813e0019dcc82d21a0b7609365ed50a";
+	//Build XMl
+	$addedxml = '<FL val="Description">Added/Edited by website integration</FL>';
+	$xml = '&xmlData=<Contacts><row no="1">'.$regfirstxml.$reglastxml.$regemailxml.$regaddressxml.$regcityxml.$regstatexml.$regzipxml.$regcontactxml.$addedxml.'</row></Contacts>';
+	if($regzohoid) {
+		$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
+		$id = "&id=".$regzohoid;
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$id.$xml;
+	} else {
+		$url = "https://crm.zoho.com/crm/private/xml/Contacts/insertRecords";
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$xml;
+	}
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	$file = 'results.txt';
+	// Open the file to get existing content
+	$current = file_get_contents($file);
+	// Append to the file
+	$current .= $param."\n".$result."\n";
+	// Write the contents back to the file
+	file_put_contents($file, $current);
 }
 add_action( 'rcp_form_processing', 'pw_rcp_save_user_fields_on_register', 10, 2 );
 
@@ -980,21 +1125,41 @@ add_action( 'rcp_form_processing', 'pw_rcp_save_user_fields_on_register', 10, 2 
  *
  */
 function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
-
+	if( ! empty( $_POST['rcp_first_name'] ) ) {
+		$firstxml = '<FL val="First Name">'.$_POST['rcp_first_name'].'</FL>';
+	}
+	if( ! empty( $_POST['rcp_last_name'] ) ) {
+		$lastxml = '<FL val="Last Name">'.$_POST['rcp_last_name'].'</FL>';
+	}
+	if( ! empty( $_POST['rcp_email'] ) ) {
+		$emailxml = '<FL val="Email">'.$_POST['rcp_email'].'</FL>';
+	}
 	if( ! empty( $_POST['rcp_address'] ) ) {
 		update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $_POST['rcp_address'] ) );
+		$addressxml = '<FL val="Mailing Street">'.$_POST['rcp_address'].'</FL>';
 	}
 	if( ! empty( $_POST['rcp_city'] ) ) {
 		update_user_meta( $user_id, 'rcp_city', sanitize_text_field( $_POST['rcp_city'] ) );
+		$cityxml = '<FL val="Mailing City">'.$_POST['rcp_city'].'</FL>';
 	}
 	if( ! empty( $_POST['rcp_state'] ) ) {
 		update_user_meta( $user_id, 'rcp_state', sanitize_text_field( $_POST['rcp_state'] ) );
+		$statexml = '<FL val="Mailing State">'.$_POST['rcp_state'].'</FL>';
 	}
 	if( ! empty( $_POST['rcp_zip'] ) ) {
 		update_user_meta( $user_id, 'rcp_zip', sanitize_text_field( $_POST['rcp_zip'] ) );
+		$zipxml = '<FL val="Mailing Zip">'.$_POST['rcp_zip'].'</FL>';
 	}
 	if( ! empty( $_POST['rcp_contact'] ) ) {
 		update_user_meta( $user_id, 'rcp_contact', sanitize_text_field( $_POST['rcp_contact'] ) );
+		if($_POST['rcp_type'] == 'mobile') {
+			$phonetype = 'Mobile';
+		} elseif($_POST['rcp_type'] == 'home') {
+			$phonetype = 'Home Phone';
+		} else {
+			$phonetype = 'Phone';
+		}
+		$contactxml = '<FL val="'.$phonetype.'">'.$_POST['rcp_contact'].'</FL>';
 	}
 
 	update_user_meta( $user_id, 'rcp_type', $_POST['rcp_type'] );
@@ -1009,18 +1174,46 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		update_user_meta( $user_id, 'rcp_privacy', $_POST['rcp_privacy'] );
 	}
 
-
 	update_user_meta( $user_id, 'rcp_ha', sanitize_text_field( $_POST['rcp_ha'] ) );
+	$haxml = '<FL val="Holy Ambition">'.$_POST['rcp_ha'].'</FL>';
 	update_user_meta( $user_id, 'rcp_mission', sanitize_text_field( $_POST['rcp_mission'] ) );
+	$missionxml = '<FL val="Mission Statement">'.$_POST['rcp_mission'].'</FL>';
 
 	update_user_meta( $user_id, 'rcp_strength1', $_POST['rcp_strength1'] );
+	$strength1xml = '<FL val="Strengths 1">'.$_POST['rcp_strength1'].'</FL>';
 	update_user_meta( $user_id, 'rcp_strength2', $_POST['rcp_strength2'] );
+	$strength2xml = '<FL val="Strengths 2">'.$_POST['rcp_strength2'].'</FL>';
 	update_user_meta( $user_id, 'rcp_strength3', $_POST['rcp_strength3'] );
+	$strength3xml = '<FL val="Strengths 3">'.$_POST['rcp_strength3'].'</FL>';
 	update_user_meta( $user_id, 'rcp_strength4', $_POST['rcp_strength4'] );
+	$strength4xml = '<FL val="Strengths 4">'.$_POST['rcp_strength4'].'</FL>';
 	update_user_meta( $user_id, 'rcp_strength5', $_POST['rcp_strength5'] );
+	$strength5xml = '<FL val="Strengths 5">'.$_POST['rcp_strength5'].'</FL>';
 
 	update_user_meta( $user_id, 'rcp_gift1', $_POST['rcp_gift1'] );
+	$gift1xml = '<FL val="Spiritual Gift 1">'.$_POST['rcp_gift1'].'</FL>';
 	update_user_meta( $user_id, 'rcp_gift2', $_POST['rcp_gift2'] );
+	$gift2xml = '<FL val="Spiritual Gift 2">'.$_POST['rcp_gift2'].'</FL>';
+
+	if( ! empty( $_POST['rcp_zohoid'] ) ) {
+		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $_POST['rcp_zohoid'] ) );
+		header("Content-type: application/xml");
+		$token="1813e0019dcc82d21a0b7609365ed50a";
+		$id = "&id=".$_POST['rcp_zohoid'];
+		//Build XMl
+		$xml = '&xmlData=<Contacts><row no="1">'.$firstxml.$lastxml.$emailxml.$addressxml.$cityxml.$statexml.$zipxml.$contactxml.$haxml.$missionxml.$strength1xml.$strength2xml.$strength3xml.$strength4xml.$strength5xml.$gift1xml.$gift2xml.'</row></Contacts>';
+		$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$id.$xml;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+		$result = curl_exec($ch);
+		curl_close($ch);
+	}
 
 }
 add_action( 'rcp_user_profile_updated', 'pw_rcp_save_user_fields_on_profile_save', 10 );
@@ -1105,3 +1298,24 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 }
+/*Zoho API Integration*/
+function zohoAPI() {
+	/*echo '<h1>zoho</h1>';
+	header("Content-type: application/xml");
+	$token="1813e0019dcc82d21a0b7609365ed50a";
+	$id = "&id=925406000000487001";
+	$xml = '&xmlData=<Contacts><row no="1"><FL val="First Name">Josh</FL></row></Contacts>';
+	$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
+	$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$id.$xml;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	var_dump($result);*/
+}
+add_action('rcp_profile_editor_after','zohoAPI');
