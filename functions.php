@@ -238,23 +238,23 @@ function pw_rcp_add_user_fields() {
 
 	?>
 	<p class="custom-fields">
-		<label for="rcp_address"><?php _e( 'Address', 'rcp' ); ?></label>
+		<label for="rcp_address"><?php _e( 'Address', 'rcp' ); ?><span class="req">*</span></label>
 		<input name="rcp_address" id="rcp_address" type="text" value="<?php echo esc_attr( $address ); ?>"/>
 	</p>
 	<p class="custom-fields">
-		<label for="rcp_city"><?php _e( 'City', 'rcp' ); ?></label>
+		<label for="rcp_city"><?php _e( 'City', 'rcp' ); ?><span class="req">*</span></label>
 		<input name="rcp_city" id="rcp_city" type="text" value="<?php echo esc_attr( $city ); ?>"/>
 	</p>
 	<p class="custom-fields">
-		<label for="rcp_state"><?php _e( 'State', 'rcp' ); ?></label>
+		<label for="rcp_state"><?php _e( 'State', 'rcp' ); ?><span class="req">*</span></label>
 		<input name="rcp_state" id="rcp_state" type="text" value="<?php echo esc_attr( $state ); ?>"/>
 	</p>
 	<p class="custom-fields">
-		<label for="rcp_zip"><?php _e( 'Zip', 'rcp' ); ?></label>
+		<label for="rcp_zip"><?php _e( 'Zip', 'rcp' ); ?><span class="req">*</span></label>
 		<input name="rcp_zip" id="rcp_zip" type="text" value="<?php echo esc_attr( $zip ); ?>"/>
 	</p>
 	<p class="custom-fields contact-number group">
-		<label for="rcp_contact"><?php _e( 'Contact Number', 'rcp' ); ?></label>
+		<label for="rcp_contact"><?php _e( 'Contact Number', 'rcp' ); ?><span class="req">*</span></label>
 		<input name="rcp_contact" id="rcp_contact" type="text" value="<?php echo esc_attr( $contact ); ?>"/>
 		<select name="rcp_type" id="rcp_type">
 			<option value="type" <?php if(esc_attr( $type ) == 'type' || empty($type)) {echo 'selected';} ?>>Type:</option>
@@ -264,7 +264,7 @@ function pw_rcp_add_user_fields() {
 		</select>
 	</p>
 	<p class="custom-fields">
-		<label for="rcp_privacy"><?php _e( 'Privacy', 'rcp' ); ?> <small>(Required)</small></label>
+		<label for="rcp_privacy"><?php _e( 'Privacy', 'rcp' ); ?> <span class="req">*</span></label>
 		<input name="rcp_privacy" id="rcp_privacy" type="checkbox" <?php if( esc_attr( $privacy )) {echo 'checked';} ?>/><span>I agree to keep the content of the website within the Primemovers community only</span>
 	</p>
 
@@ -306,7 +306,11 @@ function pw_rcp_add_user_fields_profile() {
 		$lastname   = $userdata->last_name;
 		$useremail = $userdata->user_email;
 		header("Content-type: application/xml");
-		$token="1813e0019dcc82d21a0b7609365ed50a";
+		if(site_url() == 'http://local-prime.com') {
+			$token="1813e0019dcc82d21a0b7609365ed50a";
+		} else {
+			$token="e63e7ff339d6f3d8d4634e651191e98b";
+		}
 		$search = "&criteria=(Email:".$useremail.")";
 		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
@@ -648,7 +652,11 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 		$lastname   = $userdata->last_name;
 		$useremail = $userdata->user_email;
 		header("Content-type: application/xml");
-		$token="1813e0019dcc82d21a0b7609365ed50a";
+		if(site_url() == 'http://local-prime.com') {
+			$token="1813e0019dcc82d21a0b7609365ed50a";
+		} else {
+			$token="e63e7ff339d6f3d8d4634e651191e98b";
+		}
 		$search = "&criteria=(Email:".$useremail.")";
 		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
@@ -998,7 +1006,24 @@ add_action( 'rcp_edit_member_after', 'pw_rcp_add_member_edit_fields' );
  *
  */
 function pw_rcp_validate_user_fields_on_register( $posted ) {
-
+	if ( rcp_get_subscription_id() ) {
+	   return;
+	}
+	if( empty( $posted['rcp_address'] ) ) {
+		rcp_errors()->add( 'invalid_address', __( 'Please enter your street address', 'rcp' ), 'register' );
+	}
+	if( empty( $posted['rcp_city'] ) ) {
+		rcp_errors()->add( 'invalid_city', __( 'Please enter your city', 'rcp' ), 'register' );
+	}
+	if( empty( $posted['rcp_state'] ) ) {
+		rcp_errors()->add( 'invalid_state', __( 'Please enter your state', 'rcp' ), 'register' );
+	}
+	if( empty( $posted['rcp_zip'] ) ) {
+		rcp_errors()->add( 'invalid_zip', __( 'Please enter your zip code', 'rcp' ), 'register' );
+	}
+	if( empty( $posted['rcp_contact'] ) ) {
+		rcp_errors()->add( 'invalid_contact', __( 'Please enter a contact number', 'rcp' ), 'register' );
+	}
 	if( ! isset( $posted['rcp_privacy'] ) ) {
 		rcp_errors()->add( 'invalid_location', __( 'Please agree to our privacy policy', 'rcp' ), 'register' );
 	}
@@ -1021,7 +1046,11 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 		$regemailxml = '<FL val="Email">'.$posted['rcp_user_email'].'</FL>';
 		$useremail = $posted['rcp_user_email'];
 		header("Content-type: application/xml");
-		$token="1813e0019dcc82d21a0b7609365ed50a";
+		if(site_url() == 'http://local-prime.com') {
+			$token="1813e0019dcc82d21a0b7609365ed50a";
+		} else {
+			$token="e63e7ff339d6f3d8d4634e651191e98b";
+		}
 		$search = "&criteria=(Email:".$useremail.")";
 		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
@@ -1089,7 +1118,11 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 	}
 
 	header("Content-type: application/xml");
-	$token="1813e0019dcc82d21a0b7609365ed50a";
+	if(site_url() == 'http://local-prime.com') {
+		$token="1813e0019dcc82d21a0b7609365ed50a";
+	} else {
+		$token="e63e7ff339d6f3d8d4634e651191e98b";
+	}
 	//Build XMl
 	$addedxml = '<FL val="Description">Added/Edited by website integration</FL>';
 	$xml = '&xmlData=<Contacts><row no="1">'.$regfirstxml.$reglastxml.$regemailxml.$regaddressxml.$regcityxml.$regstatexml.$regzipxml.$regcontactxml.$addedxml.'</row></Contacts>';
@@ -1198,7 +1231,11 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 	if( ! empty( $_POST['rcp_zohoid'] ) ) {
 		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $_POST['rcp_zohoid'] ) );
 		header("Content-type: application/xml");
-		$token="1813e0019dcc82d21a0b7609365ed50a";
+		if(site_url() == 'http://local-prime.com') {
+			$token="1813e0019dcc82d21a0b7609365ed50a";
+		} else {
+			$token="e63e7ff339d6f3d8d4634e651191e98b";
+		}
 		$id = "&id=".$_POST['rcp_zohoid'];
 		//Build XMl
 		$xml = '&xmlData=<Contacts><row no="1">'.$firstxml.$lastxml.$emailxml.$addressxml.$cityxml.$statexml.$zipxml.$contactxml.$haxml.$missionxml.$strength1xml.$strength2xml.$strength3xml.$strength4xml.$strength5xml.$gift1xml.$gift2xml.'</row></Contacts>';
