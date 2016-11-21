@@ -1266,7 +1266,7 @@ function my_mce_buttons_2($buttons) {
 }
 add_filter('mce_buttons_2', 'my_mce_buttons_2');
 /**Notify of Profile Update**/
-add_action( 'profile_update', 'ngtj_updated_user_profile_notify', 10, 2 );
+//add_action( 'profile_update', 'ngtj_updated_user_profile_notify', 10, 2 );
 function ngtj_updated_user_profile_notify( $user_id, $old_user_data )
 {
 	// get the user data into an object
@@ -1291,7 +1291,7 @@ function ngtj_updated_user_profile_notify( $user_id, $old_user_data )
 	wp_mail( 'kitty.allen@lote.org,sandra.bash@lote.org', sprintf( __( '%s updated their Profile' ), $user->display_name ), $message );
 }
 //* Password reset activation E-mail -> Body
-add_filter( 'retrieve_password_message', 'wpse_retrieve_password_message', 10, 2 );
+//add_filter( 'retrieve_password_message', 'wpse_retrieve_password_message', 10, 2 );
 function wpse_retrieve_password_message( $message, $key ){
     $user_data = '';
     // If no value is posted, return false
@@ -1319,7 +1319,7 @@ function wpse_retrieve_password_message( $message, $key ){
     $message .= '">"';
     $message .= network_site_url("wp-login.php?action=rp&key=$key&login=" . rawurlencode($user_login), 'login');
     $message .= '"</a>\n\n"';
-    $message .= 'Kind Regards,<br/>Dream Team';
+    $message .= 'Kind Regards,<br/>Primemovers';
     // Return completed message for retrieve password
     return $message;
 }
@@ -1356,3 +1356,4 @@ function zohoAPI() {
 	var_dump($result);*/
 }
 add_action('rcp_profile_editor_after','zohoAPI');
+add_filter( 'send_email_change_email', '__return_false' );
