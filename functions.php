@@ -1158,33 +1158,97 @@ add_action( 'rcp_form_processing', 'pw_rcp_save_user_fields_on_register', 10, 2 
  *
  */
 function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
+	/*Begin RCP fields*/
+	$user_info = get_userdata($user_id);
 	if( ! empty( $_POST['rcp_first_name'] ) ) {
 		$firstxml = '<FL val="First Name">'.$_POST['rcp_first_name'].'</FL>';
+		$first_name = $_POST['rcp_first_name'];
+	} else {
+		$first_name = $user_info->first_name;
 	}
 	if( ! empty( $_POST['rcp_last_name'] ) ) {
 		$lastxml = '<FL val="Last Name">'.$_POST['rcp_last_name'].'</FL>';
+	} else {
+		$last_name = $user_info->last_name;
 	}
 	if( ! empty( $_POST['rcp_email'] ) ) {
 		$emailxml = '<FL val="Email">'.$_POST['rcp_email'].'</FL>';
 	}
 	if( ! empty( $_POST['rcp_address'] ) ) {
-		update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $_POST['rcp_address'] ) );
+		$oldaddress = get_user_meta( $user_id, 'rcp_address', true );
+		$newaddress = update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $_POST['rcp_address'] ) );
 		$addressxml = '<FL val="Mailing Street">'.$_POST['rcp_address'].'</FL>';
+		if($newaddress) {
+			if ( function_exists("SimpleLogger") ) {
+				SimpleLogger()->notice(
+					"{first} {last} edited their address from {old} to {new}",
+					array(
+						"first" => $first_name,
+						"last" => $last_name,
+						"old" => $oldaddress,
+						"new" => $_POST['rcp_address'],
+					)
+				);
+			}
+		}
 	}
 	if( ! empty( $_POST['rcp_city'] ) ) {
-		update_user_meta( $user_id, 'rcp_city', sanitize_text_field( $_POST['rcp_city'] ) );
+		$oldcity = get_user_meta( $user_id, 'rcp_city', true );
+		$newcity = update_user_meta( $user_id, 'rcp_city', sanitize_text_field( $_POST['rcp_city'] ) );
 		$cityxml = '<FL val="Mailing City">'.$_POST['rcp_city'].'</FL>';
+		if($newcity) {
+			if ( function_exists("SimpleLogger") ) {
+				SimpleLogger()->notice(
+					"{first} {last} edited their city from {old} to {new}",
+					array(
+						"first" => $first_name,
+						"last" => $last_name,
+						"old" => $oldcity,
+						"new" => $_POST['rcp_city'],
+					)
+				);
+			}
+		}
 	}
 	if( ! empty( $_POST['rcp_state'] ) ) {
-		update_user_meta( $user_id, 'rcp_state', sanitize_text_field( $_POST['rcp_state'] ) );
+		$oldstate = get_user_meta( $user_id, 'rcp_state', true );
+		$newstate = update_user_meta( $user_id, 'rcp_state', sanitize_text_field( $_POST['rcp_state'] ) );
 		$statexml = '<FL val="Mailing State">'.$_POST['rcp_state'].'</FL>';
+		if($newstate) {
+			if ( function_exists("SimpleLogger") ) {
+				SimpleLogger()->notice(
+					"{first} {last} edited their state from {old} to {new}",
+					array(
+						"first" => $first_name,
+						"last" => $last_name,
+						"old" => $oldstate,
+						"new" => $_POST['rcp_state'],
+					)
+				);
+			}
+		}
 	}
 	if( ! empty( $_POST['rcp_zip'] ) ) {
-		update_user_meta( $user_id, 'rcp_zip', sanitize_text_field( $_POST['rcp_zip'] ) );
+		$oldzip = get_user_meta( $user_id, 'rcp_zip', true );
+		$newzip = update_user_meta( $user_id, 'rcp_zip', sanitize_text_field( $_POST['rcp_zip'] ) );
 		$zipxml = '<FL val="Mailing Zip">'.$_POST['rcp_zip'].'</FL>';
+		if($newzip) {
+			if ( function_exists("SimpleLogger") ) {
+				SimpleLogger()->notice(
+					"{first} {last} edited their zip from {old} to {new}",
+					array(
+						"first" => $first_name,
+						"last" => $last_name,
+						"old" => $oldzip,
+						"new" => $_POST['rcp_zip'],
+					)
+				);
+			}
+		}
 	}
 	if( ! empty( $_POST['rcp_contact'] ) ) {
-		update_user_meta( $user_id, 'rcp_contact', sanitize_text_field( $_POST['rcp_contact'] ) );
+		$oldcontact = get_user_meta( $user_id, 'rcp_contact', true );
+		$newcontact = update_user_meta( $user_id, 'rcp_contact', sanitize_text_field( $_POST['rcp_contact'] ) );
 		if($_POST['rcp_type'] == 'mobile') {
 			$phonetype = 'Mobile';
 		} elseif($_POST['rcp_type'] == 'home') {
@@ -1193,6 +1257,19 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 			$phonetype = 'Phone';
 		}
 		$contactxml = '<FL val="'.$phonetype.'">'.$_POST['rcp_contact'].'</FL>';
+		if($newcontact) {
+			if ( function_exists("SimpleLogger") ) {
+				SimpleLogger()->notice(
+					"{first} {last} edited their phone number from {old} to {new}",
+					array(
+						"first" => $first_name,
+						"last" => $last_name,
+						"old" => $oldcontact,
+						"new" => $_POST['rcp_contact'],
+					)
+				);
+			}
+		}
 	}
 
 	update_user_meta( $user_id, 'rcp_type', $_POST['rcp_type'] );
@@ -1207,36 +1284,175 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		update_user_meta( $user_id, 'rcp_privacy', $_POST['rcp_privacy'] );
 	}
 
-	update_user_meta( $user_id, 'rcp_ha', sanitize_text_field( $_POST['rcp_ha'] ) );
+	$oldha = get_user_meta( $user_id, 'rcp_ha', true );
+	$newha = update_user_meta( $user_id, 'rcp_ha', sanitize_text_field( $_POST['rcp_ha'] ) );
 	$haxml = '<FL val="Holy Ambition">'.$_POST['rcp_ha'].'</FL>';
-	update_user_meta( $user_id, 'rcp_mission', sanitize_text_field( $_POST['rcp_mission'] ) );
+	if($newha) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Holy Ambition from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldha,
+					"new" => $_POST['rcp_ha'],
+				)
+			);
+		}
+	}
+
+	$oldmission = get_user_meta( $user_id, 'rcp_mission', true );
+	$newmission = update_user_meta( $user_id, 'rcp_mission', sanitize_text_field( $_POST['rcp_mission'] ) );
 	$missionxml = '<FL val="Mission Statement">'.$_POST['rcp_mission'].'</FL>';
+	if($newmission) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Mission from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldmission,
+					"new" => $_POST['rcp_mission'],
+				)
+			);
+		}
+	}
 
-	update_user_meta( $user_id, 'rcp_strength1', $_POST['rcp_strength1'] );
+	$oldstrength1 = get_user_meta( $user_id, 'rcp_strength1', true );
+	$newstrength1 = update_user_meta( $user_id, 'rcp_strength1', $_POST['rcp_strength1'] );
 	$strength1xml = '<FL val="Strengths 1">'.$_POST['rcp_strength1'].'</FL>';
-	update_user_meta( $user_id, 'rcp_strength2', $_POST['rcp_strength2'] );
+	if($newstrength1) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Strength 1 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldstrength1,
+					"new" => $_POST['rcp_strength1'],
+				)
+			);
+		}
+	}
+
+	$oldstrength2 = get_user_meta( $user_id, 'rcp_strength2', true );
+	$newstrength2 = update_user_meta( $user_id, 'rcp_strength2', $_POST['rcp_strength2'] );
 	$strength2xml = '<FL val="Strengths 2">'.$_POST['rcp_strength2'].'</FL>';
-	update_user_meta( $user_id, 'rcp_strength3', $_POST['rcp_strength3'] );
+	if($newstrength2) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Strength 2 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldstrength2,
+					"new" => $_POST['rcp_strength2'],
+				)
+			);
+		}
+	}
+
+
+	$oldstrength3 = get_user_meta( $user_id, 'rcp_strength3', true );
+	$newstrength3 = update_user_meta( $user_id, 'rcp_strength3', $_POST['rcp_strength3'] );
 	$strength3xml = '<FL val="Strengths 3">'.$_POST['rcp_strength3'].'</FL>';
-	update_user_meta( $user_id, 'rcp_strength4', $_POST['rcp_strength4'] );
+	if($newstrength3) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Strength 3 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldstrength3,
+					"new" => $_POST['rcp_strength3'],
+				)
+			);
+		}
+	}
+
+	$oldstrength4 = get_user_meta( $user_id, 'rcp_strength4', true );
+	$newstrength4 = update_user_meta( $user_id, 'rcp_strength4', $_POST['rcp_strength4'] );
 	$strength4xml = '<FL val="Strengths 4">'.$_POST['rcp_strength4'].'</FL>';
-	update_user_meta( $user_id, 'rcp_strength5', $_POST['rcp_strength5'] );
+	if($newstrength4) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Strength 4 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldstrength4,
+					"new" => $_POST['rcp_strength4'],
+				)
+			);
+		}
+	}
+
+	$oldstrength5 = get_user_meta( $user_id, 'rcp_strength5', true );
+	$newstrength5 = update_user_meta( $user_id, 'rcp_strength5', $_POST['rcp_strength5'] );
 	$strength5xml = '<FL val="Strengths 5">'.$_POST['rcp_strength5'].'</FL>';
+	if($newstrength5) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Strength 5 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldstrength5,
+					"new" => $_POST['rcp_strength5'],
+				)
+			);
+		}
+	}
 
-	update_user_meta( $user_id, 'rcp_gift1', $_POST['rcp_gift1'] );
+
+	$oldgift1 = get_user_meta( $user_id, 'rcp_gift1', true );
+	$newgift1 = update_user_meta( $user_id, 'rcp_gift1', $_POST['rcp_gift1'] );
 	$gift1xml = '<FL val="Spiritual Gift 1">'.$_POST['rcp_gift1'].'</FL>';
-	update_user_meta( $user_id, 'rcp_gift2', $_POST['rcp_gift2'] );
+	if($newgift1) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Gift 1 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldgift1,
+					"new" => $_POST['rcp_gift1'],
+				)
+			);
+		}
+	}
+	$oldgift2 = get_user_meta( $user_id, 'rcp_gift2', true );
+	$newgift2 = update_user_meta( $user_id, 'rcp_gift2', $_POST['rcp_gift2'] );
 	$gift2xml = '<FL val="Spiritual Gift 2">'.$_POST['rcp_gift2'].'</FL>';
+	if($newgift2) {
+		if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} edited their Gift 2 from {old} to {new}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"old" => $oldgift2,
+					"new" => $_POST['rcp_gift2'],
+				)
+			);
+		}
+	}
 
-	if( ! empty( $_POST['rcp_zohoid'] ) ) {
-		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $_POST['rcp_zohoid'] ) );
+	if( empty( $_POST['rcp_zohoid'] ) ) {
+		$zohoid = get_user_meta( $user_id, 'rcp_zohoid', true );
+	} else {
+		$zohoid = $_POST['rcp_zohoid'];
+	}
+
+	if( ! empty( $zohoid ) ) {
+		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $zohoid ) );
 		header("Content-type: application/xml");
 		if(site_url() == 'http://local-prime.com') {
 			$token="1813e0019dcc82d21a0b7609365ed50a";
 		} else {
 			$token="e63e7ff339d6f3d8d4634e651191e98b";
 		}
-		$id = "&id=".$_POST['rcp_zohoid'];
+		$id = "&id=".$zohoid;
 		//Build XMl
 		$xml = '&xmlData=<Contacts><row no="1">'.$firstxml.$lastxml.$emailxml.$addressxml.$cityxml.$statexml.$zipxml.$contactxml.$haxml.$missionxml.$strength1xml.$strength2xml.$strength3xml.$strength4xml.$strength5xml.$gift1xml.$gift2xml.'</row></Contacts>';
 		$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
@@ -1252,9 +1468,83 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		curl_close($ch);
 	}
 
+
 }
 add_action( 'rcp_user_profile_updated', 'pw_rcp_save_user_fields_on_profile_save', 10 );
 add_action( 'rcp_edit_member', 'pw_rcp_save_user_fields_on_profile_save', 10 );
+/*History log if email changed*/
+function user_profile_update_email( $user_id, $old_user_data ) {
+	$user = get_userdata( $user_id );
+	if($old_user_data->user_email != $user->user_email) {
+  		if ( function_exists("SimpleLogger") ) {
+  			SimpleLogger()->notice(
+  				"{name} edited their email from {old} to {new}",
+  				array(
+  					"name" => $user->display_name,
+  					"old" => $old_user_data->user_email,
+  					"new" => $user->user_email,
+  				)
+  			);
+  		}
+	} else {
+		if ( function_exists("SimpleLogger") ) {
+  			SimpleLogger()->notice(
+  				"{name} probably changed their name",
+  				array(
+  					"name" => $user->display_name,
+  				)
+  			);
+  		}
+	}
+}
+
+add_action( 'profile_update', 'user_profile_update_email', 10, 2 );
+/**
+ * Stores the the first name last name and email if edited from user edit page
+ *
+ */
+function edit_user_page( $user_id ) {
+	if( ! empty( $_POST['first_name'] ) ) {
+		$firstxml = '<FL val="First Name">'.$_POST['first_name'].'</FL>';
+	}
+	if( ! empty( $_POST['last_name'] ) ) {
+		$lastxml = '<FL val="Last Name">'.$_POST['last_name'].'</FL>';
+	}
+	if( ! empty( $_POST['email'] ) ) {
+		$emailxml = '<FL val="Email">'.$_POST['email'].'</FL>';
+	}
+	if( empty( $_POST['rcp_zohoid'] ) ) {
+		$zohoid = get_user_meta( $user_id, 'rcp_zohoid', true );
+	} else {
+		$zohoid = $_POST['rcp_zohoid'];
+	}
+
+	if( ! empty( $zohoid ) ) {
+		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $zohoid ) );
+		header("Content-type: application/xml");
+		if(site_url() == 'http://local-prime.com') {
+			$token="1813e0019dcc82d21a0b7609365ed50a";
+		} else {
+			$token="e63e7ff339d6f3d8d4634e651191e98b";
+		}
+		$id = "&id=".$zohoid;
+		//Build XMl
+		$xml = '&xmlData=<Contacts><row no="1">'.$firstxml.$lastxml.$emailxml.'</row></Contacts>';
+		$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
+		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$id.$xml;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+		$result = curl_exec($ch);
+		curl_close($ch);
+	}
+
+}
+add_action( 'edit_user_profile_update', 'edit_user_page', 10 );
 
 function my_mce_buttons_2($buttons) {
 	/**
