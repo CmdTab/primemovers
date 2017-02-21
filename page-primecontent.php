@@ -16,7 +16,7 @@ if( rcp_is_paid_content('') ) {
 } else {
 	get_header();
 }
-if( rcp_is_active() ) :
+if( rcp_user_has_access($user_ID, 1) ) :
     while ( have_posts() ) : the_post();
 ?>
 

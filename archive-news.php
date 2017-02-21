@@ -30,7 +30,7 @@ $args = array( 'post_type' => 'news', 'orderby' => 'date',
 
 	<div id="content" class="site-content group">
 	<div class="full-section secure-page">
-		<?php if( rcp_is_active() ) : ?>
+		<?php if( rcp_user_has_access($user_ID, 1) ) : ?>
 		<div class="group">
 
 			<article class="entry-content group secure-content branded-content">

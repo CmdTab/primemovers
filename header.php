@@ -11,6 +11,7 @@ global $user_ID;
 $subscription_id = rcp_get_subscription( $user_ID );
 get_currentuserinfo();
 //if(! rcp_is_active()) {header('Location: http://secure.primemoversonline.com/login');}
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -60,7 +61,7 @@ get_currentuserinfo();
 				<span aria-hidden="true" data-icon="&#x4e;"></span>
 				<span class="assistive-text">Navigation</span>
 			</a>
-			<?php if(rcp_is_active()) : ?>
+			<?php if(rcp_user_has_access($user_ID, 1)) : ?>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<ul>
 					<li>

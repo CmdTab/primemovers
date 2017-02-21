@@ -12,12 +12,12 @@
 
 	while ( have_posts() ) : the_post();
 
-		if(rcp_is_active()) {
+		if(rcp_user_has_access($user_ID, 1)) {
    		get_header('secure');
 		} else {
 			get_header('form');
-		?> 
-			
+		?>
+
 		<?php }
 
 	?>

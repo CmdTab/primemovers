@@ -59,7 +59,7 @@ get_currentuserinfo();
 				<span class="assistive-text">Navigation</span>
 			</a>
 
-			<?php if(rcp_is_active()) : ?>
+			<?php if(rcp_user_has_access($user_ID, 1)) : ?>
 			   <nav id="site-navigation" class="main-navigation" role="navigation">
 				<ul>
 					<li>

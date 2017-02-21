@@ -18,7 +18,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-		<?php if( rcp_is_active() ) : ?>
+		<?php if( rcp_user_has_access($user_ID, 1) ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php

@@ -13,7 +13,7 @@ get_header(); ?>
 		</div>
 	</header><!-- #masthead -->
 	<div id="content" class="site-content group">
-	<?php if( rcp_is_active() ) : ?>
+	<?php if( rcp_user_has_access($user_ID, 1) ) : ?>
 	<div class="full-section secure-page">
 				<div class="group">
 
