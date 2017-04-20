@@ -96,7 +96,7 @@ get_currentuserinfo();
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
 					<li>
-						<a href = "https://donate.livingontheedge.org/Default.aspx?p=primemover-donate-page">Donate</a>
+						<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
 					</li>
 				</ul>
 
