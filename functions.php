@@ -1476,6 +1476,32 @@ add_action( 'rcp_edit_member', 'pw_rcp_save_user_fields_on_profile_save', 10 );
 function user_profile_update_email( $user_id, $old_user_data ) {
 	$user = get_userdata( $user_id );
 	if($old_user_data->user_email != $user->user_email) {
+		//Send to Zoho
+		$zohoid = get_user_meta( $user_id, 'rcp_zohoid', true );
+		$emailxml = '<FL val="Email">'.$user->user_email.'</FL>';
+		if( ! empty( $zohoid ) ) {
+			header("Content-type: application/xml");
+			if(site_url() == 'http://local-prime.com') {
+				$token="1813e0019dcc82d21a0b7609365ed50a";
+			} else {
+				$token="e63e7ff339d6f3d8d4634e651191e98b";
+			}
+			$id = "&id=".$zohoid;
+			//Build XMl
+			$xml = '&xmlData=<Contacts><row no="1">'.$emailxml.'</row></Contacts>';
+			$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
+			$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$id.$xml;
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+			$result = curl_exec($ch);
+			curl_close($ch);
+		}
+		//Track in SimpleLogger
   		if ( function_exists("SimpleLogger") ) {
   			SimpleLogger()->notice(
   				"{name} edited their email from {old} to {new}",
