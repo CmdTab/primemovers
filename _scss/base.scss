@@ -43,21 +43,18 @@ html,body {
 	overflow-x:hidden;
 }
 body {
+	background: #ddd;
 	font:
 		1em/1.8
 		"Open Sans","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: $black;
-	//background: url(_i/texture.png);
-	//background-size: 397px;
+	background: url(_i/texture.png);
+	background-size: 500px;
 }
 a {
 	color: $blue;
 	font-weight: 700;
 	text-decoration: underline;
-	-webkit-transition: all 300ms ease;
-	-moz-transition: all 300ms ease;
-	-o-transition: all 300ms ease;
-	-ms-transition: all 300ms ease;
 	transition: all 300ms ease;
 	&:hover {
 		color: #000;

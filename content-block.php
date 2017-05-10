@@ -3,9 +3,12 @@
 /*  Loop through Flexible Content field  */
 $i = 1;
 $fullVideo = 0;
+$gender = get_user_meta( get_current_user_id(), 'rcp_gender', true );
 while(has_sub_field("content_block")): ?>
-	<?php if(get_row_layout() == "video_content"): // layout: Content ?>
-		<?php
+
+	<?php
+
+		if(get_row_layout() == "video_content"): // layout: Content
 			if($i == 1) {
 				$fullVideo++;
 		?>
@@ -56,8 +59,7 @@ while(has_sub_field("content_block")): ?>
 			</div>
 		</div>
 
-	<?php elseif(get_row_layout() == "list_content"): // layout: Featured Posts ?>
-		<?php
+	<?php elseif(get_row_layout() == "list_content"): // layout: Featured Posts
 			if($fullVideo > 0) {
 				if ($i % 2 == 0){
 		?>
@@ -77,43 +79,46 @@ while(has_sub_field("content_block")): ?>
 			<?php
 
 				$rows = get_sub_field('content_item');
-				if($rows)
-				{
+				if($rows) {
 					echo '<ul class="content-list">';
 
-					foreach($rows as $row)
-					{
-						echo '<li>';
-						$itemType = $row['item_type'];
-						if ($itemType == 'Video') {
-							echo '<a href = "#" class="content-title action-required" data-type="video" data-code="'. $row['item_url'] . '">';
-							echo '<span aria-hidden="true" data-icon="&#x76;"></span>';
-						} elseif ($itemType == 'Audio') {
-							echo '<a href = "#" class="content-title action-required" data-type="audio" data-code="'. $row['item_url'] . '">';
-							echo '<span aria-hidden="true" data-icon="&#x61;"></span>';
-						} elseif ($itemType == 'Document') {
-							echo '<a href = "' .$row['item_url'] . '" class="content-title" data-type="document">';
-							echo '<span aria-hidden="true" data-icon="&#x6e;"></span>';
-						} elseif ($itemType == 'URL') {
-							echo '<a href = "' .$row['item_url'] . '" class="content-title" data-type="url" target="_blank">';
-							echo '<span aria-hidden="true" data-icon="&#x77;"></span>';
-						}
-						echo '<h4>' . $row['item_title'] . '</h4>';
-						echo '<span class="subtitle">' . $row['item_subtitle'] . '</span>';
-						echo '</a>';
-						echo '<div class="content-action">';
+					foreach($rows as $row) {
+						$audience = $row['item_audience'];
+						global $user_ID;
+						$subscription_id = rcp_get_subscription( $user_ID );
+						if($audience == $gender || $audience == 'both' || $subscription_id == 'Facilitator') {
+							echo '<li>';
+							$itemType = $row['item_type'];
+							if ($itemType == 'Video') {
+								echo '<a href = "#" class="content-title action-required" data-type="video" data-code="'. $row['item_url'] . '">';
+								echo '<span aria-hidden="true" data-icon="&#x76;"></span>';
+							} elseif ($itemType == 'Audio') {
+								echo '<a href = "#" class="content-title action-required" data-type="audio" data-code="'. $row['item_url'] . '">';
+								echo '<span aria-hidden="true" data-icon="&#x61;"></span>';
+							} elseif ($itemType == 'Document') {
+								echo '<a href = "' .$row['item_url'] . '" class="content-title" data-type="document">';
+								echo '<span aria-hidden="true" data-icon="&#x6e;"></span>';
+							} elseif ($itemType == 'URL') {
+								echo '<a href = "' .$row['item_url'] . '" class="content-title" data-type="url" target="_blank">';
+								echo '<span aria-hidden="true" data-icon="&#x77;"></span>';
+							}
+							echo '<h4>' . $row['item_title'] . '</h4>';
+							echo '<span class="subtitle">' . $row['item_subtitle'] . '</span>';
+							echo '</a>';
+							echo '<div class="content-action">';
 
-						if ($itemType == 'Video') {
-							echo '<a href = "#" class="btn action-required" data-type="video" data-code="'. $row['item_url'] . '">Watch</a>';
-						} elseif ($itemType == 'Audio') {
-							echo '<a href = "#" class="btn action-required" data-type="audio" data-code="'. $row['item_url'] . '">Listen</a>';
-							echo '<a href = "'. $row['item_url'] . '" class="btn">Download</a>';
-						} elseif ($itemType == 'Document') {
-							echo '<a href = "'. $row['item_url'] . '" class="btn">Download</a>';
-						} elseif ($itemType == 'URL') {
-							echo '<a href = "'. $row['item_url'] . '" class="btn" target="_blank">View</a>';
+							if ($itemType == 'Video') {
+								echo '<a href = "#" class="btn action-required" data-type="video" data-code="'. $row['item_url'] . '">Watch</a>';
+							} elseif ($itemType == 'Audio') {
+								echo '<a href = "#" class="btn action-required" data-type="audio" data-code="'. $row['item_url'] . '">Listen</a>';
+								echo '<a href = "'. $row['item_url'] . '" class="btn">Download</a>';
+							} elseif ($itemType == 'Document') {
+								echo '<a href = "'. $row['item_url'] . '" class="btn">Download</a>';
+							} elseif ($itemType == 'URL') {
+								echo '<a href = "'. $row['item_url'] . '" class="btn" target="_blank">View</a>';
+							}
+							echo '</div><div class="content-player"></div></li>';
 						}
-						echo '</div><div class="content-player"></div></li>';
 					}
 
 					echo '</ul>';

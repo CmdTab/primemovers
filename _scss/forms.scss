@@ -246,3 +246,19 @@
 	vertical-align: super;
 	font-size: 0.5em;
 }
+.radio-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline-block;
+		margin: 0 1.5em 0 0;
+		input, label {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		label {
+			margin-left: 0.35em;
+		}
+	}
+}

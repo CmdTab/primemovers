@@ -235,8 +235,20 @@ function pw_rcp_add_user_fields() {
 	$work      = get_user_meta( get_current_user_id(), 'rcp_work', true );
 	//$ambition  = get_user_meta( get_current_user_id(), 'rcp_ambition', true );
 	$privacy   = get_user_meta( get_current_user_id(), 'rcp_privacy', true );
+	$gender   = get_user_meta( get_current_user_id(), 'rcp_gender', true );
 
 	?>
+	<div class="custom-fields">
+		<label for="rcp_gender"><?php _e( 'Gender', 'rcp' ); ?><span class="req">*</span></label>
+		<ul class="radio-buttons">
+			<li>
+				<input id="male" name="rcp_gender" type="radio" value="<?php echo esc_attr( $gender ); ?>male" <?php if(esc_attr( $gender ) == 'male' || empty($gender)) {echo 'checked';} ?>/><label for="male">Male</label>
+			</li>
+			<li>
+				<input id="female" name="rcp_gender" type="radio" value="<?php echo esc_attr( $gender ); ?>female" <?php if(esc_attr( $gender ) == 'female') {echo 'checked';} ?>/><label for="female">Female</label>
+			</li>
+		</ul>
+	</div>
 	<p class="custom-fields">
 		<label for="rcp_address"><?php _e( 'Address', 'rcp' ); ?><span class="req">*</span></label>
 		<input name="rcp_address" id="rcp_address" type="text" value="<?php echo esc_attr( $address ); ?>"/>
@@ -627,7 +639,7 @@ add_action( 'rcp_profile_editor_after', 'pw_rcp_add_user_fields_profile' );
  *
  */
 function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
-
+	$gender    = get_user_meta( $user_id, 'rcp_gender', true );
 	$address   = get_user_meta( $user_id, 'rcp_address', true );
 	$city      = get_user_meta( $user_id, 'rcp_city', true );
 	$state     = get_user_meta( $user_id, 'rcp_state', true );
@@ -687,6 +699,15 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 		<td>
 			<input name="rcp_zohoid" id="rcp_zohoid" type="text" value="<?php echo esc_attr( $zohoid ); ?>"/>
 			<p class="description"><?php _e( 'The member\'s ID in Zoho. Not visible to member', 'rcp' ); ?></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<th scope="row" valign="top">
+			<label for="rcp_gender"><?php _e( 'Gender', 'rcp' ); ?></label>
+		</th>
+		<td>
+			<input name="rcp_gender" id="rcp_gender" type="text" value="<?php echo esc_attr( $gender ); ?>"/>
+			<p class="description"><?php _e( 'male or female', 'rcp' ); ?></p>
 		</td>
 	</tr>
 	<tr valign="top">
@@ -1009,6 +1030,9 @@ function pw_rcp_validate_user_fields_on_register( $posted ) {
 	if ( rcp_get_subscription_id() ) {
 	   return;
 	}
+	if( empty( $posted['rcp_gender'] ) ) {
+		rcp_errors()->add( 'invalid_gender', __( 'Please indicate your gender', 'rcp' ), 'register' );
+	}
 	if( empty( $posted['rcp_address'] ) ) {
 		rcp_errors()->add( 'invalid_address', __( 'Please enter your street address', 'rcp' ), 'register' );
 	}
@@ -1075,7 +1099,9 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 			update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $zohoid ) );
 		}
 	}
-
+	if( ! empty( $posted['rcp_gender'] ) ) {
+		update_user_meta( $user_id, 'rcp_gender', sanitize_text_field( $posted['rcp_gender'] ) );
+	}
 	if( ! empty( $posted['rcp_address'] ) ) {
 		update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $posted['rcp_address'] ) );
 		$regaddressxml = '<FL val="Mailing Street">'.$posted['rcp_address'].'</FL>';
@@ -1173,6 +1199,9 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 	}
 	if( ! empty( $_POST['rcp_email'] ) ) {
 		$emailxml = '<FL val="Email">'.$_POST['rcp_email'].'</FL>';
+	}
+	if( ! empty( $_POST['rcp_gender'] ) ) {
+		update_user_meta( $user_id, 'rcp_gender', sanitize_text_field( $_POST['rcp_gender'] ) );
 	}
 	if( ! empty( $_POST['rcp_address'] ) ) {
 		$oldaddress = get_user_meta( $user_id, 'rcp_address', true );
