@@ -21,7 +21,9 @@ if (isset($_GET['checkemail'])) {
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+<link rel="icon"
+      type="image/png"
+      href="<?php bloginfo('template_directory'); ?>/_i/favicon.png">
 <?php wp_head(); ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
@@ -50,12 +52,12 @@ if (isset($_GET['checkemail'])) {
 		</symbol>
 	</defs>
 </svg>
-	
+
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="full-section form-header" role="banner">
 		<div class="form-branding">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo-old.png"></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo.png"></a>
 		</div>
 
 	</header><!-- #masthead -->

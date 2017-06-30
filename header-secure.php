@@ -10,6 +10,7 @@ global $current_user, $display_name, $user_email;
 global $user_ID;
 $subscription_id = rcp_get_subscription( $user_ID );
 get_currentuserinfo();
+$pagegender = get_user_meta( get_current_user_id(), 'rcp_gender', true );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -18,7 +19,9 @@ get_currentuserinfo();
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+<link rel="icon"
+      type="image/png"
+      href="<?php bloginfo('template_directory'); ?>/_i/favicon.png">
 <?php wp_head(); ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
@@ -47,12 +50,12 @@ get_currentuserinfo();
 		</symbol>
 	</defs>
 </svg>
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site <?php echo $pagegender;?>">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="full-section site-header" role="banner">
 		<div class="wrap group">
 			<div class="site-branding">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo-old.png"></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo.png"></a>
 			</div>
 			<a href = "#" class="nav-toggle login-toggle">
 				<span aria-hidden="true" data-icon="&#x4e;"></span>

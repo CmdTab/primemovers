@@ -10,61 +10,62 @@
 
 	</div><!-- #content -->
 	<footer class="secure-footer group">
-		<nav id="site-navigation" class="footer-navigation" role="navigation">
-			<ul>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/dashboard">Dashboard</a>
-				</li>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
-				</li>
-				<?php if( $subscription_id == 'Alumni' ) { ?>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
-				</li>
-				<?php } if( $subscription_id == 'Convener' ) { ?>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
-				</li>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
-				</li>
-				<?php }
-					if( $subscription_id == 'Facilitator' ) { ?>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/facilitator">Facilitator</a>
-				</li>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
-				</li>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
-				</li>
-				<?php }
-					if( current_user_can( edit_pages ) ) { ?>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/facilitator">Facilitator</a>
-				</li>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
-				</li>
-				<li>
-					<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
-				</li>
-				<?php } ?>
-				<li>
-					<a href = "http://primemoversonline.com/contact">Contact</a>
-				</li>
-				<li>
-					<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
-				</li>
-			</ul>
-		</nav><!-- #site-navigation -->
-		<div class="copyright-bar group">
-
-			<!-- <div class="lote"><span>Primemovers is a ministry of</span><a href = "http://livingontheedge.org"><img src = "<?php // bloginfo('template_directory'); ?>/_i/LOTE-logo-white.png"></a></div> -->
-			<div class="copyright">&copy; <?php echo date('Y'); ?> Primemovers</div>
+		<div class="group">
+			<nav id="site-navigation" class="footer-navigation" role="navigation">
+				<ul>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/dashboard">Dashboard</a>
+					</li>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
+					</li>
+					<?php if( $subscription_id == 'Alumni' ) { ?>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
+					</li>
+					<?php } if( $subscription_id == 'Convener' ) { ?>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
+					</li>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
+					</li>
+					<?php }
+						if( $subscription_id == 'Facilitator' ) { ?>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/facilitator">Facilitator</a>
+					</li>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
+					</li>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
+					</li>
+					<?php }
+						if( current_user_can( edit_pages ) ) { ?>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/facilitator">Facilitator</a>
+					</li>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
+					</li>
+					<li>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
+					</li>
+					<?php } ?>
+					<li>
+						<a href = "http://primemoversonline.com/contact">Contact</a>
+					</li>
+					<li>
+						<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
+					</li>
+				</ul>
+			</nav><!-- #site-navigation -->
+			<div class="copyright-bar">
+				<div class="copyright">&copy; <?php echo date('Y'); ?> Primemovers</div>
+			</div>
 		</div>
+		<div class="lote">Primemovers is a ministry of <a href = "http://livingontheedge.org"><img src = "<?php bloginfo('template_directory'); ?>/_i/LOTE-logo-white.png"></a></div>
 	</footer>
 	<div class="overlay">
 		<div class="overlay-container">

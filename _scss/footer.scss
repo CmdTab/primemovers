@@ -100,7 +100,7 @@
 	img {
 		display: inline-block;
 		margin: 0.5em 0;
-		opacity : 0.6;
+		opacity: 0.6;
 		width: 12em;
 	}
 	@include bp(800) {
@@ -110,17 +110,22 @@
 	}
 }
 .lote {
-	font-size: 0.6em;
+	clear: both;
+	font-size: 0.875em;
 	text-align: center;
-	span {
+	margin: 2em 0 0;
+	padding: 0 0 2em;
+	opacity: 0.6;
+	a {
 		display: block;
+
+		margin: 0.5em auto 0;
 	}
 	@include bp(800) {
-		text-align: right;
 	}
 }
 .copyright {
-	font-size: 0.6em;
+	font-size: 0.875em;
 	text-align: center;
 	@include bp(800) {
 		text-align: right;

@@ -7,8 +7,37 @@ $gender = get_user_meta( get_current_user_id(), 'rcp_gender', true );
 while(has_sub_field("content_block")): ?>
 
 	<?php
+		if(get_row_layout() == "full_width_top_section"):
+			$fullVideo++;
+	?>
+		<div class="content-block full-block">
+			<div class="sm-wrap"><?php the_sub_field('top_section_content'); ?></div>
+			<?php if( have_rows('top_video_list') ): ?>
+			<ul class="two-list video-list group">
+				<?php
+					while ( have_rows('top_video_list') ) : the_row();
+						$vidAudience = get_sub_field('top_audience');
+						if($vidAudience == $gender || $vidAudience == 'both' || $subscription_id == 'Facilitator' || empty($vidAudience) ) :
+							$video = get_sub_field('top_vimeo');
+							$videoContents = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video.php"));
+							$vidImg = $videoContents[0]['thumbnail_large'];
+				?>
+					<li>
+						<a href = "#" class="content-title action-required" data-type="video" data-code="<?php echo $video; ?>">
 
-		if(get_row_layout() == "video_content"): // layout: Content
+							<div class="img-container">
+								<span aria-hidden="true" data-icon="&#x76;"></span>
+								<img src = "<?php echo $vidImg; ?>">
+							</div>
+							<?php the_sub_field('top_video_title'); ?>
+						</a>
+					</li>
+				<?php endif; endwhile; ?>
+			</ul>
+			<?php endif; ?>
+		</div>
+		<?php
+		elseif(get_row_layout() == "video_content"): // layout: Content
 			if($i == 1) {
 				$fullVideo++;
 		?>
@@ -86,7 +115,7 @@ while(has_sub_field("content_block")): ?>
 						$audience = $row['item_audience'];
 						global $user_ID;
 						$subscription_id = rcp_get_subscription( $user_ID );
-						if($audience == $gender || $audience == 'both' || $subscription_id == 'Facilitator') {
+						if($audience == $gender || $audience == 'both' || $subscription_id == 'Facilitator' || empty($audience) ) {
 							echo '<li>';
 							$itemType = $row['item_type'];
 							if ($itemType == 'Video') {

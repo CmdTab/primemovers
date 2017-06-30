@@ -7,7 +7,7 @@
 		"uuidString": "43287257-696E-4C10-9080-6654CB3E8A40"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
 	"\/404.php": {
 		"ft": 8192,
@@ -62,6 +62,17 @@
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
+		"q": 100
+		},
+	"\/_i\/favicon.png": {
+		"ft": 32768,
+		"iS": 303,
+		"oA": 0,
+		"oAP": "\/_i\/favicon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/_i\/graph.png": {
@@ -3768,6 +3779,7 @@
 		},
 	"languageDefaultsUserDefined": [
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "source",

@@ -55,7 +55,7 @@ get_currentuserinfo();
 	<header id="masthead" class="full-section branded-header" role="banner">
 		<div class="wrap group">
 			<div class="site-branding">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo-new-white.png"></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo-white.png"></a>
 			</div>
 			<a href = "#" class="nav-toggle">
 				<span aria-hidden="true" data-icon="&#x4e;"></span>

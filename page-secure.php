@@ -21,7 +21,7 @@
 						<header class="secure-page-header">
 							<h1><?php the_title(); ?></h1>
 							<p><?php the_field('sidebar_quote');?></p>
-						</header>
+						</header>						
 						<?php get_template_part( 'content', 'block' ); ?>
 					</article>
 				</div>

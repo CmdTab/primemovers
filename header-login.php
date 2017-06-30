@@ -18,7 +18,9 @@ get_currentuserinfo();
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+<link rel="icon"
+      type="image/png"
+      href="<?php bloginfo('template_directory'); ?>/_i/favicon.png">
 <?php wp_head(); ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
@@ -76,7 +78,7 @@ get_currentuserinfo();
 	<header id="masthead" class="full-section site-header" role="banner">
 		<div class="wrap group">
 			<div class="site-branding">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo-old.png"></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src ="<?php bloginfo('template_directory'); ?>/_i/logo.png"></a>
 			</div>
 			<a href = "#" class="nav-toggle login-toggle">
 				<span aria-hidden="true" data-icon="&#x4e;"></span>
@@ -89,9 +91,11 @@ get_currentuserinfo();
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
 					</li>
+					<?php if( $subscription_id != 'Unleashed' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
 					</li>
+					<?php endif; ?>
 					<?php if( $subscription_id == 'Convener' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
@@ -106,9 +110,11 @@ get_currentuserinfo();
 					</li>
 
 					<?php endif; ?>
+					<?php if( $subscription_id != 'Unleashed' ) : ?>
 					<li>
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
+					<?php endif; ?>
 					<li>
 						<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
 					</li>
