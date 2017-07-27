@@ -22,7 +22,7 @@ get_currentuserinfo();
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
-<link href='http://fonts.googleapis.com/css?family=Lato|Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato|Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <!--[if lt IE 9]>
@@ -67,10 +67,11 @@ get_currentuserinfo();
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
 					</li>
-					<?php //if( $subscription_id == 'Alumni' ) { ?>
+					<?php if( $subscription_id != 'Unleashed' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
 					</li>
+					<?php endif; ?>
 					<?php if( $subscription_id == 'Convener' ) { ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
@@ -92,12 +93,15 @@ get_currentuserinfo();
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
 					</li>
 					<?php } ?>
+					<?php if( $subscription_id != 'Unleashed' ) : ?>
 					<li>
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
+
 					<li>
 						<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
 					</li>
+					<?php endif; ?>
 				</ul>
 
 

@@ -22,7 +22,7 @@ get_currentuserinfo();
       type="image/png"
       href="<?php bloginfo('template_directory'); ?>/_i/favicon.png">
 <?php wp_head(); ?>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <!--[if lt IE 9]>
@@ -114,10 +114,11 @@ get_currentuserinfo();
 					<li>
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
-					<?php endif; ?>
+
 					<li>
 						<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
 					</li>
+                    <?php endif; ?>
 				</ul>
 
 			</nav><!-- #site-navigation -->

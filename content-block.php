@@ -19,15 +19,18 @@ while(has_sub_field("content_block")): ?>
 						$vidAudience = get_sub_field('top_audience');
 						if($vidAudience == $gender || $vidAudience == 'both' || $subscription_id == 'Facilitator' || empty($vidAudience) ) :
 							$video = get_sub_field('top_vimeo');
-							$videoContents = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video.php"));
-							$vidImg = $videoContents[0]['thumbnail_large'];
+							$image = get_sub_field('top_thumb');
+							/*$videoContents = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video.php"));
+							$vidImg = $videoContents[0]['thumbnail_large'];*/
 				?>
 					<li>
 						<a href = "#" class="content-title action-required" data-type="video" data-code="<?php echo $video; ?>">
 
 							<div class="img-container">
 								<span aria-hidden="true" data-icon="&#x76;"></span>
-								<img src = "<?php echo $vidImg; ?>">
+								<?php if( !empty($image) ): ?>
+									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+								<?php endif; ?>
 							</div>
 							<?php the_sub_field('top_video_title'); ?>
 						</a>

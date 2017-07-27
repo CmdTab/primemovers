@@ -25,7 +25,7 @@ if (isset($_GET['checkemail'])) {
       type="image/png"
       href="<?php bloginfo('template_directory'); ?>/_i/favicon.png">
 <?php wp_head(); ?>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <!--[if lt IE 9]>

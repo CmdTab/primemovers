@@ -23,7 +23,7 @@ $pagegender = get_user_meta( get_current_user_id(), 'rcp_gender', true );
       type="image/png"
       href="<?php bloginfo('template_directory'); ?>/_i/favicon.png">
 <?php wp_head(); ?>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="//use.typekit.net/tzl1far.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <!--[if lt IE 9]>
@@ -68,9 +68,11 @@ $pagegender = get_user_meta( get_current_user_id(), 'rcp_gender', true );
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/primemover">Primemovers</a>
 					</li>
+                    <?php if( $subscription_id != 'Unleashed' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/alumni">Alumni</a>
 					</li>
+                    <?php endif; ?>
 					<?php if( $subscription_id == 'Convener' ) : ?>
 					<li>
 						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/convener">Convener</a>
@@ -85,12 +87,15 @@ $pagegender = get_user_meta( get_current_user_id(), 'rcp_gender', true );
 					</li>
 
 					<?php endif; ?>
+                    <?php if( $subscription_id != 'Unleashed' ) : ?>
 					<li>
 						<a href = "http://secure.primemoversonline.com/news">News</a>
 					</li>
+
 					<li>
 						<a href = "https://store.livingontheedge.org/primemovers-donation/">Donate</a>
 					</li>
+                    <?php endif; ?>
 				</ul>
 
 			</nav><!-- #site-navigation -->
