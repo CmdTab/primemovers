@@ -317,12 +317,14 @@ function pw_rcp_add_user_fields_profile() {
 		$firstname   = $userdata->first_name;
 		$lastname   = $userdata->last_name;
 		$useremail = $userdata->user_email;
-		header("Content-type: application/xml");
 		if(site_url() == 'http://local-prime.com') {
-			$token="1813e0019dcc82d21a0b7609365ed50a";
+			$token="04edb6e98b97d35e08f6a33dbae91ddf";
 		} else {
-			$token="e63e7ff339d6f3d8d4634e651191e98b";
+			$token="1da84dce3d74735b0fda2db52fed753d";
 		}
+		$headers = array(
+		    "Content-type: application/xml"
+		);
 		$search = "&criteria=(Email:".$useremail.")";
 		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
@@ -332,6 +334,8 @@ function pw_rcp_add_user_fields_profile() {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_POST, 1);
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 		$result = curl_exec($ch);
 		curl_close($ch);
@@ -663,12 +667,15 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 		$firstname   = $userdata->first_name;
 		$lastname   = $userdata->last_name;
 		$useremail = $userdata->user_email;
-		header("Content-type: application/xml");
+		//header("Content-type: application/xml");
 		if(site_url() == 'http://local-prime.com') {
-			$token="1813e0019dcc82d21a0b7609365ed50a";
+			$token="04edb6e98b97d35e08f6a33dbae91ddf";
 		} else {
-			$token="e63e7ff339d6f3d8d4634e651191e98b";
+			$token="1da84dce3d74735b0fda2db52fed753d";
 		}
+		$headers = array(
+		    "Content-type: application/xml"
+		);
 		$search = "&criteria=(Email:".$useremail.")";
 		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
@@ -678,6 +685,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 		$result = curl_exec($ch);
 		curl_close($ch);
@@ -1071,10 +1079,13 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 		$useremail = $posted['rcp_user_email'];
 		header("Content-type: application/xml");
 		if(site_url() == 'http://local-prime.com') {
-			$token="1813e0019dcc82d21a0b7609365ed50a";
+			$token="04edb6e98b97d35e08f6a33dbae91ddf";
 		} else {
-			$token="e63e7ff339d6f3d8d4634e651191e98b";
+			$token="1da84dce3d74735b0fda2db52fed753d";
 		}
+		$headers = array(
+		    "Content-type: application/xml"
+		);
 		$search = "&criteria=(Email:".$useremail.")";
 		$url = "https://crm.zoho.com/crm/private/json/Contacts/searchRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$search;
@@ -1084,9 +1095,12 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_POST, 1);
+
+		//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 		$result = curl_exec($ch);
 		curl_close($ch);
+		header("Content-Type: text/html");
 		$json = json_decode($result);
 		//var_dump($json->response->result->Contacts->row->FL);
 		$rows = $json->response->result->Contacts->row->FL;
@@ -1145,9 +1159,9 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 
 	header("Content-type: application/xml");
 	if(site_url() == 'http://local-prime.com') {
-		$token="1813e0019dcc82d21a0b7609365ed50a";
+		$token="04edb6e98b97d35e08f6a33dbae91ddf";
 	} else {
-		$token="e63e7ff339d6f3d8d4634e651191e98b";
+		$token="1da84dce3d74735b0fda2db52fed753d";
 	}
 	//Build XMl
 	$addedxml = '<FL val="Description">Added/Edited by website integration</FL>';
@@ -1160,15 +1174,20 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 		$url = "https://crm.zoho.com/crm/private/xml/Contacts/insertRecords";
 		$param= "authtoken=".$token."&scope=crmapi&newFormat=1".$xml;
 	}
+	$headers = array(
+		"Content-type: application/xml"
+	);
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 	curl_setopt($ch, CURLOPT_POST, 1);
+	//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 	$result = curl_exec($ch);
 	curl_close($ch);
+	header("Content-Type: text/html");
 	$file = 'results.txt';
 	// Open the file to get existing content
 	$current = file_get_contents($file);
@@ -1477,9 +1496,9 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $zohoid ) );
 		header("Content-type: application/xml");
 		if(site_url() == 'http://local-prime.com') {
-			$token="1813e0019dcc82d21a0b7609365ed50a";
+			$token="04edb6e98b97d35e08f6a33dbae91ddf";
 		} else {
-			$token="e63e7ff339d6f3d8d4634e651191e98b";
+			$token="1da84dce3d74735b0fda2db52fed753d";
 		}
 		$id = "&id=".$zohoid;
 		//Build XMl
@@ -1492,9 +1511,17 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_POST, 1);
+		$headers = array(
+		    "Content-type: application/xml",
+		    "Content-length: " . strlen($xml),
+		    "Connection: close",
+		);
+		//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 		$result = curl_exec($ch);
 		curl_close($ch);
+		//var_dump($result);
+		header("Content-Type: text/html");
 	}
 
 
@@ -1511,9 +1538,9 @@ function user_profile_update_email( $user_id, $old_user_data ) {
 		if( ! empty( $zohoid ) ) {
 			header("Content-type: application/xml");
 			if(site_url() == 'http://local-prime.com') {
-				$token="1813e0019dcc82d21a0b7609365ed50a";
+				$token="04edb6e98b97d35e08f6a33dbae91ddf";
 			} else {
-				$token="e63e7ff339d6f3d8d4634e651191e98b";
+				$token="1da84dce3d74735b0fda2db52fed753d";
 			}
 			$id = "&id=".$zohoid;
 			//Build XMl
@@ -1526,9 +1553,14 @@ function user_profile_update_email( $user_id, $old_user_data ) {
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 			curl_setopt($ch, CURLOPT_POST, 1);
+			$headers = array(
+				"Content-type: application/xml"
+			);
+			//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 			$result = curl_exec($ch);
 			curl_close($ch);
+			header("Content-Type: text/html");
 		}
 		//Track in SimpleLogger
   		if ( function_exists("SimpleLogger") ) {
@@ -1578,9 +1610,9 @@ function edit_user_page( $user_id ) {
 		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $zohoid ) );
 		header("Content-type: application/xml");
 		if(site_url() == 'http://local-prime.com') {
-			$token="1813e0019dcc82d21a0b7609365ed50a";
+			$token="04edb6e98b97d35e08f6a33dbae91ddf";
 		} else {
-			$token="e63e7ff339d6f3d8d4634e651191e98b";
+			$token="1da84dce3d74735b0fda2db52fed753d";
 		}
 		$id = "&id=".$zohoid;
 		//Build XMl
@@ -1593,9 +1625,14 @@ function edit_user_page( $user_id ) {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_POST, 1);
+		$headers = array(
+			"Content-type: application/xml"
+		);
+		//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 		$result = curl_exec($ch);
 		curl_close($ch);
+		header("Content-Type: text/html");
 	}
 
 }
@@ -1684,7 +1721,7 @@ if( function_exists('acf_add_options_page') ) {
 function zohoAPI() {
 	/*echo '<h1>zoho</h1>';
 	header("Content-type: application/xml");
-	$token="1813e0019dcc82d21a0b7609365ed50a";
+	$token="04edb6e98b97d35e08f6a33dbae91ddf";
 	$id = "&id=925406000000487001";
 	$xml = '&xmlData=<Contacts><row no="1"><FL val="First Name">Josh</FL></row></Contacts>';
 	$url = "https://crm.zoho.com/crm/private/xml/Contacts/updateRecords";
@@ -1700,5 +1737,5 @@ function zohoAPI() {
 	curl_close($ch);
 	var_dump($result);*/
 }
-add_action('rcp_profile_editor_after','zohoAPI');
+//add_action('rcp_profile_editor_after','zohoAPI');
 add_filter( 'send_email_change_email', '__return_false' );

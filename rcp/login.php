@@ -1,8 +1,27 @@
-<?php global $rcp_login_form_args; ?>
+<?php
+/**
+ * Login Form
+ *
+ * Template for displaying the login form. This is used in the [login_form] shortcode.
+ * @link http://docs.restrictcontentpro.com/article/1598-loginform
+ *
+ * For modifying this template, please see: http://docs.restrictcontentpro.com/article/1738-template-files
+ *
+ * @package     Restrict Content Pro
+ * @subpackage  Templates/Login
+ * @copyright   Copyright (c) 2017, Restrict Content Pro
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ */
+
+global $rcp_login_form_args; ?>
 <?php if( ! is_user_logged_in() ) : ?>
 
 	<?php rcp_show_error_messages( 'login' ); ?>
-
+	<?php if( isset( $_GET['password-reset']) && $_GET['password-reset'] == 'true') { ?>
+	<div class="rcp_success">
+		<span><?php _e( 'Password changed successfully', 'rcp' ); ?></span>
+	</div>
+	<?php } ?>
 	<form id="rcp_login_form"  class="rcp_form" method="POST" action="<?php echo esc_url( rcp_get_current_url() ); ?>">
 
 		<?php do_action( 'rcp_before_login_form_fields' ); ?>
@@ -24,7 +43,7 @@
 				<input type="checkbox" name="rcp_user_remember" id="rcp_user_remember" value="1"/>
 				<label for="rcp_user_remember"><?php _e( 'Remember me', 'rcp' ); ?></label>
 			</p>
-			<p class="rcp_lost_password"><a href="<?php echo esc_url( add_query_arg( 'rcp_action', 'lostpassword') ); ?>"><?php _e( 'Lost your password?', 'rcp' ); ?></a></p>
+			<p class="rcp_lost_password"><a href="<?php echo '/lost/'.esc_url( add_query_arg( 'rcp_action', 'lostpassword') ); ?>"><?php _e( 'Lost your password?', 'rcp' ); ?></a></p>
 			<p>
 				<input type="hidden" name="rcp_action" value="login"/>
 				<input type="hidden" name="rcp_redirect" value="<?php echo esc_url( $rcp_login_form_args['redirect'] ); ?>"/>
