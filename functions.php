@@ -1195,6 +1195,13 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 	$current .= $param."\n".$result."\n";
 	// Write the contents back to the file
 	file_put_contents($file, $current);
+	//var_dump($result);
+	$resultxml = new SimpleXMLElement($result);
+	$finalZohoID = $resultxml->result->recorddetail->FL[0];
+	//echo $finalZohoID;
+	if(!$regzohoid) {
+		update_user_meta( $user_id, 'rcp_zohoid', sanitize_text_field( $finalZohoID ) );
+	}
 }
 add_action( 'rcp_form_processing', 'pw_rcp_save_user_fields_on_register', 10, 2 );
 
@@ -1334,7 +1341,8 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 
 	$oldha = get_user_meta( $user_id, 'rcp_ha', true );
 	$newha = update_user_meta( $user_id, 'rcp_ha', sanitize_text_field( $_POST['rcp_ha'] ) );
-	$haxml = '<FL val="Holy Ambition">'.$_POST['rcp_ha'].'</FL>';
+	$ha_clean = str_replace(array('%', '&'), array('%25','and'), $_POST['rcp_ha']);
+	$haxml = '<FL val="Holy Ambition">'.$ha_clean.'</FL>';
 	if($newha) {
 		if ( function_exists("SimpleLogger") ) {
 			SimpleLogger()->notice(
@@ -1351,7 +1359,8 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 
 	$oldmission = get_user_meta( $user_id, 'rcp_mission', true );
 	$newmission = update_user_meta( $user_id, 'rcp_mission', sanitize_text_field( $_POST['rcp_mission'] ) );
-	$missionxml = '<FL val="Mission Statement">'.$_POST['rcp_mission'].'</FL>';
+	$mission_clean = str_replace(array('%', '&'), array('%25','and'), $_POST['rcp_mission']);
+	$missionxml = '<FL val="Mission Statement">'.$mission_clean.'</FL>';
 	if($newmission) {
 		if ( function_exists("SimpleLogger") ) {
 			SimpleLogger()->notice(
@@ -1521,6 +1530,16 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		$result = curl_exec($ch);
 		curl_close($ch);
 		//var_dump($result);
+		/*if ( function_exists("SimpleLogger") ) {
+			SimpleLogger()->notice(
+				"{first} {last} got the result from the API: {result}",
+				array(
+					"first" => $first_name,
+					"last" => $last_name,
+					"result" => $result,
+				)
+			);
+		}*/
 		header("Content-Type: text/html");
 	}
 

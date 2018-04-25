@@ -31,7 +31,10 @@ if( rcp_user_has_access($user_ID, 1) ) :
 						?>
 						<div class="content-block full dashboard-intro">
 							<div class="sm-wrap">
-								<?php if( $subscription_id == 'Ministry Partners' ) : ?>
+								<?php if( $subscription_id == 'Ministry Partners' || current_user_can( 'manage_options' ) || $subscription_id == 'Facilitator' ) : ?>
+									<?php if(current_user_can( 'manage_options' ) || $subscription_id == 'Facilitator' ) : ?>
+										<h5 class="admin-note">This is the welcome note that Ministry Partners see</h5>
+									<?php endif; ?>
 									<?php the_field('ministry_partner_welcome'); ?>
 									<?php
 										$video = get_field('mp_welcome_video');
@@ -45,6 +48,10 @@ if( rcp_user_has_access($user_ID, 1) ) :
 									</div>
 									<?php endif; ?>
 								<?php else : ?>
+									<?php the_field('general_welcome'); ?>
+								<?php endif; ?>
+								<?php if(current_user_can( 'manage_options' ) || $subscription_id == 'Facilitator' ) : ?>
+									<h5 class="admin-note">This is the welcome note that general Primemovers see</h5>
 									<?php the_field('general_welcome'); ?>
 								<?php endif; ?>
 							</div>
